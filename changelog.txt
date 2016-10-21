@@ -1,0 +1,4 @@
+=== WooCommerce Name Your Price Event Tickets ===
+
+2016.10.4 - version 1.0
+ * First Release
