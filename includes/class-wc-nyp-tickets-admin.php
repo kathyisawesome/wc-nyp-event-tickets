@@ -18,10 +18,10 @@ class WC_NYP_Tickets_Admin {
 	 * @since 0.1.0
 	 */
 	public static function init() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'meta_box_script' ) );
-		add_action( 'tribe_events_tickets_metabox_advanced', array( $this, 'do_metabox_advanced_options' ), 10, 2 );
-		add_action( 'wootickets_after_save_ticket', array( $this, 'save_nyp_data' ), 10, 3 );
-		add_filter( 'tribe_events_tickets_ajax_ticket_edit', array( $this, 'edit_nyp_data' ), 10, 2 );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'meta_box_script' ) );
+		add_action( 'tribe_events_tickets_metabox_advanced', array( __CLASS__, 'do_metabox_advanced_options' ), 10, 2 );
+		add_action( 'wootickets_after_save_ticket', array( __CLASS__, 'save_nyp_data' ), 10, 3 );
+		add_filter( 'tribe_events_tickets_ajax_ticket_edit', array( __CLASS__, 'edit_nyp_data' ), 10, 2 );
 	}
 
     /*-----------------------------------------------------------------------------------*/
