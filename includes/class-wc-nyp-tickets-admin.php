@@ -128,7 +128,7 @@ class WC_NYP_Tickets_Admin {
 	 * @param $hook
 	 */
 	public static function meta_box_script( $hook ) {
-		wp_register_script( 'nyp-event-tickets-admin', self::$url . '/assets/js/nyp-tickets.js', array( 'event-tickets' ), self::VERSION , true );
+		wp_register_script( 'nyp-event-tickets-admin', WC_NYP_Tickets::$url . '/assets/js/wc-nyp-tickets-admin.js', array( 'event-tickets' ), WC_NYP_Tickets::VERSION , true );
 	}	
 
 }
