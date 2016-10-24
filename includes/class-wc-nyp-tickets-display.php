@@ -26,6 +26,7 @@ class WC_NYP_Tickets_Display {
 		add_filter( 'tribe_events_tickets_woo_cart_class', array( $this, 'add_form_class' ) );
 		add_filter( 'tribe_events_tickets_woo_cart_column_class', array( $this, 'add_column_class' ) );
 		add_action( 'wootickets_tickets_after_quantity_input', array( $this, 'add_nyp_inputs' ), 10, 2 );	
+		add_filter( 'wootickets_ticket_price_html', array( $this, 'nyp_ticket_price' ), 10, 3 );
 
 	}
 
@@ -133,6 +134,28 @@ class WC_NYP_Tickets_Display {
 		if( WC_Name_Your_Price_Helpers::is_nyp( $product ) ){
 			WC_Name_Your_Price()->display->display_price_input( $product, '-ticket-' . $product->id );
 		}
+	}
+
+
+	/**
+	 * Change the display price of paid tickets
+	 *
+	 * @param obj $ticket
+	 * @param obj $product
+	 *
+	 * @return void
+	 */
+	public function nyp_ticket_price( $price_html, $product, $attendee ){
+		if( tribe_is_event() && isset( $attendee['order_id'] ) && isset( $attendee['order_item_id'] ) ){
+			$order = wc_get_order( $attendee['order_id'] );
+			$order_items = $order->get_items();
+			$order_item_id = $attendee['order_item_id'];
+			if( isset( $order_items[$order_item_id] ) ){
+				$line_item = $order_items[$order_item_id];
+				$price_html = $order->get_formatted_line_subtotal( $line_item );
+			}
+		}
+		return $price_html;
 	}
 
 } //end class
