@@ -37,7 +37,7 @@ class WC_NYP_Tickets_Admin {
 	 *
 	 * @return void
 	 */
-	public static function do_metabox_advanced_options( $event_id, $ticket_id ) { ?
+	public static function do_metabox_advanced_options( $event_id, $ticket_id ) {
 		
 		wp_enqueue_script( 'nyp-event-tickets-admin' ); ?>
 
