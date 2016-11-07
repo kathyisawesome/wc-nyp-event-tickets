@@ -25,7 +25,7 @@ class WC_NYP_Tickets_Display {
 		add_filter( 'tribe_get_cost', array( $this, 'nyp_event_cost' ), 10, 3 );
 		add_filter( 'tribe_events_tickets_woo_cart_class', array( $this, 'add_form_class' ) );
 		add_filter( 'tribe_events_tickets_woo_cart_column_class', array( $this, 'add_column_class' ) );
-		add_action( 'wootickets_tickets_after_quantity_input', array( $this, 'add_nyp_inputs' ), 10, 2 );	
+		add_action( 'wootickets_tickets_after_ticket_price', array( $this, 'add_nyp_inputs' ), 10, 2 );	
 		add_filter( 'wootickets_ticket_price_html', array( $this, 'nyp_ticket_price' ), 10, 3 );
 
 	}
