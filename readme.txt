@@ -10,3 +10,5 @@ WC requires at least: 2.6.4
 WC tested up to: 2.6.4   
 
 Add Name Your Price Support to Events Tickets
+
+Requires The Events Calendar 4.3.2, Event Tickets 4.3.2, and Events Tickets Plus 4.3.2
