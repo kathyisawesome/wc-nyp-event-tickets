@@ -3,8 +3,9 @@
  * WooCommerce Name Your Price Event Tickets cart functions and filters.
  *
  * @class 	WC_NYP_Tickets_Cart
- * @version 0.1.0
- * @since   0.1.0
+ * @package		WooCommerce Name Your Price Event Tickets
+ * @author		Kathy Darling
+ * @since		1.0.0
  */
 
 // Exit if accessed directly

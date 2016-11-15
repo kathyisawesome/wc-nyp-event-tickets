@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Name Your Price Event Tickets
  * Plugin URI:  http://github.com/helgatheviking/woocommerce-name-your-price-tickets
  * Description: Bridge plugin for adding NYP support to Modern Tribe&#39;s Tickets Plus
- * Version:     0.1.0
+ * Version:     1.0.2
  * Author:      Kathy Darling
  * Author URI:  http://www.kathyisawesome.com
  * License: GNU General Public License v3.0
@@ -13,7 +13,7 @@
  * Requires at least: 3.8.0
  * Tested up to: 4.4.0
  * WC requires at least: 2.4.0
- * WC tested up to: 2.5.0   
+ * WC tested up to: 2.6.7   
  */
 
 /**
@@ -29,9 +29,9 @@ if ( ! class_exists( 'WC_NYP_Tickets' ) ) :
 
 class WC_NYP_Tickets {
 
-	const VERSION = '0.1.0';
+	const VERSION = '1.0.2';
 	const PREFIX  = 'WC_NYP_Tickets';
-	const REQUIRED_WC = '2.1.0';
+	const REQUIRED_WC = '2.4.0';
 
 	/**
 	 * @var WC_NYP_Tickets - the single instance of the class

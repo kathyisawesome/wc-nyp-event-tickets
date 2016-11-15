@@ -2,9 +2,10 @@
 /**
  * Functions related to front-end display
  *
- * @class 	WC_NYP_Tickets_Display
- * @version 0.1.0
- * @since   0.1.0
+ * @class 		WC_NYP_Tickets_Display
+ * @package		WooCommerce Name Your Price Event Tickets
+ * @author		Kathy Darling
+ * @since		1.0.0
  */
 
 // Exit if accessed directly

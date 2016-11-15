@@ -4,11 +4,10 @@
  *
  * Adds a setting tab and product meta.
  *
+ * @class 		WC_NYP_Tickets_Admin
  * @package		WooCommerce Name Your Price Event Tickets
- * @subpackage	WC_NYP_Tickets_Admin_Main
- * @category	Class
  * @author		Kathy Darling
- * @since		0.1.0
+ * @since		1.0.0
  */
 class WC_NYP_Tickets_Admin {
 
