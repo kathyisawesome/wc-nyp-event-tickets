@@ -46,17 +46,18 @@ class WC_NYP_Tickets_Display {
 	public function nyp_event_cost( $cost, $post_id, $with_currency_symbol ){
 		if( class_exists( 'Tribe__Tickets_Plus__Commerce__WooCommerce__Main' ) ){
 			// get instance of Woo Tickets class
-			$wootickets = $wootickets = Tribe__Tickets_Plus__Commerce__WooCommerce__Main::get_instance();
+			$wootickets = Tribe__Tickets_Plus__Commerce__WooCommerce__Main::get_instance();
 			
 			// get all tickets for event
 			$tickets = $wootickets->get_tickets_ids( $post_id );
 			
-			$all_nyp = true;
-			$has_nyp = false;
-			$min_price = null;
-			
 			// if any NYP tickets, create new price strings
 			if( $tickets ){
+				
+				$all_nyp = true;
+				$has_nyp = false;
+				$min_price = null;
+			
 				foreach ( $tickets as $ticket ){
 					if ( WC_Name_Your_Price_Helpers::is_nyp( $ticket ) ){
 						$has_nyp = true;
@@ -72,26 +73,25 @@ class WC_NYP_Tickets_Display {
 				if ( is_null( $min_price ) || $ticket_price < $min_price ) {
 					$min_price    = $ticket_price;
 				}
-				
-			}
 			
-			if( $all_nyp ){
-				if ( $with_currency_symbol ) {
-					$cost_utils = Tribe__Events__Cost_Utils::instance();
-					
-					if ( '0' === (string) $min_price ) {
-						$cost = $cost_utils->maybe_replace_cost_with_free( $min_price );
-					} elseif ( $with_currency_symbol ) {
-						$cost = $cost_utils->maybe_format_with_currency( $min_price );
+				if( $all_nyp ){
+					if ( $with_currency_symbol ) {
+						$cost_utils = Tribe__Events__Cost_Utils::instance();
 						
-					}
-		
-					$cost = esc_html( $cost );
+						if ( '0' === (string) $min_price ) {
+							$cost = $cost_utils->maybe_replace_cost_with_free( $min_price );
+						} elseif ( $with_currency_symbol ) {
+							$cost = $cost_utils->maybe_format_with_currency( $min_price );
+							
+						}
 			
+						$cost = esc_html( $cost );
+				
+					}
+					$cost = sprintf( __( 'From: %s' ), $cost );
+				} elseif ( $has_nyp ) {
+					$cost = __( 'See tickets below for pricing', 'wc-nyp-tickets' );
 				}
-				$cost = sprintf( __( 'From: %s' ), $cost );
-			} elseif ( $has_nyp ) {
-				$cost = __( 'See tickets below for pricing', 'wc-nyp-tickets' );
 			}
 		}
 		
