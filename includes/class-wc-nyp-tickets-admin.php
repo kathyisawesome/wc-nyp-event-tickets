@@ -45,25 +45,26 @@ class WC_NYP_Tickets_Admin {
 				<label for="ticket_is_nyp"><?php _e( 'Name Your Price', 'wc-nyp-tickets' );?></label>
 			</td>
 			<td>
-				<input type="checkbox" id="ticket_is_nyp" name="ticket_is_nyp" value="yes" class="ticket_field">
+				<label><input type="checkbox" id="ticket_is_nyp" name="ticket_is_nyp" value="yes" class="ticket_field">
+				<?php _e( 'Customers are allowed to determine their own price.', 'wc-nyp-tickets');?></label>
 			</td>
 		</tr>
-		<tr class="ticket_advanced ticket_advanced_Tribe__Tickets_Plus__Commerce__WooCommerce__Main suggested_ticket_price show_if_nyp" style="display: table-row;">
+		<tr class="ticket_advanced ticket_advanced_meta ticket_advanced_Tribe__Tickets_Plus__Commerce__WooCommerce__Main suggested_ticket_price show_if_nyp hide">
 			<td>
 				<label for="suggested_ticket_price"><?php _e( 'Suggested Price:', 'wc-nyp-tickets' );?></label>
 			</td>
 			<td>
 				<input type="text" id="suggested_ticket_price" name="suggested_ticket_price" class="ticket_field" size="7" value="">
-				<p class="description">(0 or empty for free tickets)</p>
+				<p class="description"><?php _e( 'Price to pre-fill for customers.  Leave blank to not suggest a price.', 'wc-nyp-tickets' );?></p>
 			</td>
 		</tr>
-		<tr class="ticket_advanced ticket_advanced_Tribe__Tickets_Plus__Commerce__WooCommerce__Main min_ticket_price show_if_nyp" style="display: table-row;">
+		<tr class="ticket_advanced ticket_advanced_meta ticket_advanced_Tribe__Tickets_Plus__Commerce__WooCommerce__Main min_ticket_price show_if_nyp hide">
 			<td>
 				<label for="min_ticket_price"><?php _e( 'Minimum Price:', 'wc-nyp-tickets' );?></label>
 			</td>
 			<td>
 				<input type="text" id="min_ticket_price" name="min_ticket_price" class="ticket_field" size="7" value="">
-				<p class="description">(0 or empty for free tickets)</p>
+				<p class="description"><?php _e( 'Lowest acceptable price for ticket. Leave blank to not enforce a minimum.', 'wc-nyp-tickets' );?></p>
 			</td>
 		</tr>
 		<?php

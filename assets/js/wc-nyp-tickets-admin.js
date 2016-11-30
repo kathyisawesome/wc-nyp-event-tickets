@@ -4,7 +4,7 @@
     var $tribe_tickets = $( '#tribetickets' );
     
     // fill fields with values on edit
-	$tribe_tickets.on( 'edit-ticket.tribe', function( event, response ){
+	$tribe_tickets.on( 'edit-ticket.tribe', function( event, response ){ 
 	    
 	    if( typeof response != 'undefined' && response.hasOwnProperty( 'data' ) && response.data.hasOwnProperty( 'ticket_is_nyp' ) ){
 	        
@@ -23,7 +23,7 @@
 	        }
 	        
 	        $ticket_is_nyp.change();
-	        
+	         
 	        // suggested price input
 	        if( response.data.hasOwnProperty( 'suggested_ticket_price' ) ){
 	            $suggested_ticket_price.val( response.data.suggested_ticket_price );
@@ -39,7 +39,7 @@
 	});
 	
 	// hide show the NYP/price fields depending on NYP checkbox
-	$tribe_tickets.on( "change", "#ticket_is_nyp", function( event ) {
+	$tribe_tickets.on( 'change', '#ticket_is_nyp', function( event ) {
 	    var $ticket_price_tr = $tribe_tickets.find( '#ticket_price' ).closest('tr');
 	    if( $(this).is(':checked') ){
 	        $('.show_if_nyp').show();
@@ -49,5 +49,5 @@
 	        $ticket_price_tr.show();
 	    }
 	});
-	
+
 })( window, jQuery );
