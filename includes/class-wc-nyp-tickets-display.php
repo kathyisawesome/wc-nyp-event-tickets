@@ -68,29 +68,11 @@ class WC_NYP_Tickets_Display {
 						$ticket_price = $product->get_price();
 					}
 				}
-				
-				// Find min price
-				if ( is_null( $min_price ) || $ticket_price < $min_price ) {
-					$min_price    = $ticket_price;
-				}
 			
 				if( $all_nyp ){
-					if ( $with_currency_symbol ) {
-						$cost_utils = Tribe__Events__Cost_Utils::instance();
-						
-						if ( '0' === (string) $min_price ) {
-							$cost = $cost_utils->maybe_replace_cost_with_free( $min_price );
-						} elseif ( $with_currency_symbol ) {
-							$cost = $cost_utils->maybe_format_with_currency( $min_price );
-							
-						}
-			
-						$cost = esc_html( $cost );
-				
-					}
-					$cost = sprintf( __( 'From: %s' ), $cost );
+					$cost = apply_filters( 'wc_nyp_events_all_nyp_tickets_cost_string', '', $post_id );
 				} elseif ( $has_nyp ) {
-					$cost = __( 'See tickets below for pricing', 'wc-nyp-tickets' );
+					$cost = apply_filters( 'wc_nyp_events_has_nyp_tickets_cost_string', __( 'See tickets below for pricing', 'wc-nyp-tickets' ), $post_id );
 				}
 			}
 		}
