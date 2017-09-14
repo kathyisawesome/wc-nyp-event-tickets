@@ -1,4 +1,9 @@
 === WooCommerce Name Your Price Event Tickets ===
 
+2017.09.13 - version 1.1.0
+* WooCommerce 3.0 compatibility. **Warning** not compatible with WC 2.6.x.
+* Add Name Your Price's front-end validation (requires Event Tickets Plus 4.5.5)
+* Add translation-ready .POT file
+
 2016.10.4 - version 1.0
  * First Release

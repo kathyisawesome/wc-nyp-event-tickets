@@ -1,9 +1,16 @@
 {
   "name": "wc-nyp-tickets",
-  "version": "0.1.0",
-  "license": "GNU3",
+  "version": "1.1.0",
+  "license": "GPL-3.0",
   "main": "Gruntfile.js",
   "author": "Kathy Darling",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helgatheviking/woocommerce-name-your-price-event-tickets"
+  },
+  "bugs": {
+    "url": "https://github.com/helgatheviking/woocommerce-name-your-price-event-tickets/issues"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-clean": "^0.7.0",
