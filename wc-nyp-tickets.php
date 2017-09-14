@@ -10,10 +10,10 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wc_nyp_tickets
  * Domain Path: /languages
- * Requires at least: 3.8.0
- * Tested up to: 4.4.0
  * WC requires at least: 2.4.0
  * WC tested up to: 2.6.7   
+ * Requires at least: 4.0.0
+ * Tested up to: 4.8.1
  */
 
 /**
@@ -71,9 +71,9 @@ class WC_NYP_Tickets {
 
 			self::$instance = new WC_NYP_Tickets();
 
-			self::$dir = plugin_dir_path(__FILE__);
+			self::$dir = untrailingslashit( plugin_dir_path(__FILE__) );
 
-			self::$url = plugin_dir_url(__FILE__);
+			self::$url = untrailingslashit( plugin_dir_url(__FILE__) );
 
 		}
 		return self::$instance;
