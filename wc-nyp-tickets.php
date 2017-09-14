@@ -40,20 +40,20 @@ class WC_NYP_Tickets {
 	protected static $instance = null;            
 
 	/**
-	 * Plugin Directory
+	 * Plugin Directory Path
 	 *
 	 * @since 1.0.0
-	 * @var string $dir
+	 * @var string $plugin_path
 	 */
-	public static $dir = '';
+	private $plugin_path = '';
 
 	/**
 	 * Plugin URL
 	 *
 	 * @since 1.0.0
-	 * @var string $url
+	 * @var string $plugin_url
 	 */
-	public static $url = '';
+	private $plugin_url = '';
 
 
 	/**
@@ -68,13 +68,7 @@ class WC_NYP_Tickets {
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof WC_NYP_Tickets ) ) {
-
 			self::$instance = new WC_NYP_Tickets();
-
-			self::$dir = untrailingslashit( plugin_dir_path(__FILE__) );
-
-			self::$url = untrailingslashit( plugin_dir_url(__FILE__) );
-
 		}
 		return self::$instance;
 	}
@@ -137,6 +131,35 @@ class WC_NYP_Tickets {
 	}
 
 
+	/*-----------------------------------------------------------------------------------*/
+	/* Getters */
+	/*-----------------------------------------------------------------------------------*/
+
+	/**
+	 * Get the plugin directory path
+	 *
+	 * @return str
+	 * @since  1.1.0
+	 */
+	public function get_plugin_path() {
+		if( ! $this->plugin_path ) {
+			$this->plugin_path = untrailingslashit( plugin_dir_path(__FILE__) );
+		}
+		return $this->plugin_path;
+	}
+
+	/**
+	 * Get the plugin url path
+	 *
+	 * @return str
+	 * @since  1.1.0
+	 */
+	public function get_plugin_url() {
+		if( ! $this->plugin_url ) {
+			$this->plugin_url = untrailingslashit( plugin_dir_url(__FILE__) );
+		}
+		return $this->plugin_url;
+	}
 } //end class: do not remove or there will be no more guacamole for you
 
 endif; // end class_exists check

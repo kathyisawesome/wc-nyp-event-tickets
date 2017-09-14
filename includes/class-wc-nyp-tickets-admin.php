@@ -144,7 +144,7 @@ class WC_NYP_Tickets_Admin {
 
 		// Meta boxes
 		if ( 'tribe_events' == $screen_id ) {
-			wp_register_script( 'nyp-event-tickets-admin', WC_NYP_Tickets::$url . '/assets/js/wc-nyp-tickets-admin.js', array( 'event-tickets' ), time() , true );
+			wp_register_script( 'nyp-event-tickets-admin', WC_NYP_Tickets()->get_plugin_url() . '/assets/js/wc-nyp-tickets-admin.js', array( 'event-tickets' ), time() , true );
 		}
 
 	}	
