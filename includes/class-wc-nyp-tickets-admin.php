@@ -136,7 +136,15 @@ class WC_NYP_Tickets_Admin {
 	 * @param $hook
 	 */
 	public static function meta_box_script( $hook ) {
-		wp_register_script( 'nyp-event-tickets-admin', WC_NYP_Tickets::$url . '/assets/js/wc-nyp-tickets-admin.js', array( 'event-tickets' ), WC_NYP_Tickets::VERSION , true );
+
+		$screen       = get_current_screen();
+		$screen_id    = is_a( $screen, 'WP_Screen' ) ? $screen->id : '';
+
+		// Meta boxes
+		if ( 'tribe_events' == $screen_id ) {
+			wp_register_script( 'nyp-event-tickets-admin', WC_NYP_Tickets::$url . '/assets/js/wc-nyp-tickets-admin.js', array( 'event-tickets' ), time() , true );
+		}
+
 	}	
 
 }
