@@ -27,6 +27,7 @@ class WC_NYP_Tickets_Display {
 		add_filter( 'tribe_events_tickets_woo_cart_class', array( $this, 'add_form_class' ) );
 		add_filter( 'tribe_events_tickets_woo_cart_column_class', array( $this, 'add_column_class' ) );
 		add_filter( 'tribe_events_wootickets_ticket_price_html', array( $this, 'nyp_ticket_price' ), 10, 3 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_nyp_scripts' ), 20 );
 
 	}
 
@@ -133,6 +134,17 @@ class WC_NYP_Tickets_Display {
 			}
 		}
 		return $price_html;
+	}
+
+	/**
+	 * Load NYP scripts for front-end validation
+	 *
+	 * @return void
+	 */
+	public function load_nyp_scripts(){
+		if( function_exists( 'tribe_is_event' ) && tribe_is_event() ) {
+			WC_Name_Your_Price()->display->nyp_scripts();
+		}
 	}
 
 } //end class
