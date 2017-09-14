@@ -41,8 +41,8 @@ class WC_NYP_Tickets_Display {
 	 * @param str $cost
 	 * @param id	$post_id // the event ID
 	 * @param bool	$with_currency_symbol
-	 *
 	 * @return str
+	 * @since  1.0.0
 	 */
 	public function nyp_event_cost( $cost, $post_id, $with_currency_symbol ){
 		if( class_exists( 'Tribe__Tickets_Plus__Commerce__WooCommerce__Main' ) ){
@@ -85,8 +85,8 @@ class WC_NYP_Tickets_Display {
 	 * Adds cart_group class to cart form, causes NYP to look for nested cart classes
 	 *
 	 * @param array $class
-	 *
 	 * @return array
+	 * @since  1.0.0
 	 */
 	public function add_form_class( $classes ) {
 		$classes[] = 'cart_group';
@@ -97,23 +97,21 @@ class WC_NYP_Tickets_Display {
 	 * Adds cart class to input wrapper <tr>
 	 *
 	 * @param array $classes
-	 *
 	 * @return array
+	 * @since  1.1.0
 	 */
 	public function add_row_class( $classes ) {
 		$classes[] = 'cart';
 		return $classes;
 	}
 
-
-
 	/**
 	 * Change the display price of paid tickets OR display price inputs
 	 *
 	 * @param obj $ticket
 	 * @param obj $product
-	 *
 	 * @return void
+	 * @since  1.0.3
 	 */
 	public function nyp_ticket_price( $price_html, $product, $attendee ){
 		if( tribe_is_event() && WC_Name_Your_Price_Helpers::is_nyp( $product ) ) {
@@ -140,6 +138,7 @@ class WC_NYP_Tickets_Display {
 	 * Load NYP scripts for front-end validation
 	 *
 	 * @return void
+	 * @since  1.1.0
 	 */
 	public function load_nyp_scripts(){
 		if( function_exists( 'tribe_is_event' ) && tribe_is_event() ) {

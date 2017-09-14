@@ -31,8 +31,8 @@ class WC_NYP_Tickets_Cart {
 	 *
 	 * @param str $prefix
 	 * @param int	$product_id
-	 *
 	 * @return str
+	 * @since  1.0.0
 	 */
 	public function nyp_cart_prefix_for_tickets( $prefix, $product_id ) {
 		if( isset( $_POST['wootickets_process'] ) && $_POST['wootickets_process'] == 1 ){

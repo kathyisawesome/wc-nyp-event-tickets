@@ -14,7 +14,7 @@ class WC_NYP_Tickets_Admin {
 	/**
 	 * Bootstraps the class and hooks required actions & filters.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 */
 	public static function init() {
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'meta_box_script' ) );
@@ -33,8 +33,8 @@ class WC_NYP_Tickets_Admin {
 	 *
 	 * @param $event_id
 	 * @param $ticket_id
-	 *
 	 * @return void
+	 * @since 1.0.0
 	 */
 	public static function do_metabox_advanced_options( $event_id, $ticket_id ) {
 		
@@ -77,6 +77,8 @@ class WC_NYP_Tickets_Admin {
 	 * @param int   Ticket ID, aka the product ID
 	 * @param int   Event Post ID of post the ticket is tied to
 	 * @param array Ticket data
+	 * @return  void
+	 * @since  1.0.0
 	 */
 	public static function save_nyp_data( $ticket_id, $event_id, $raw_data ){
 
@@ -114,6 +116,8 @@ class WC_NYP_Tickets_Admin {
 	 *
 	 * @param array   $return
 	 * @param array Ticket data
+	 * @return  array	 * 
+	 * @since 1.0.0
 	 */
 	public static function edit_nyp_data( $return, $ticket_class ){
 		$product_id = isset( $return['ID'] ) ? $return['ID'] : 0;
@@ -131,9 +135,7 @@ class WC_NYP_Tickets_Admin {
 	 * Enqueue the tickets metabox JS and CSS
 	 * @param string $hook
 	 * @return void
-	 * @since 0.1.0
-	 *
-	 * @param $hook
+	 * @since 1.0.0
 	 */
 	public static function meta_box_script( $hook ) {
 

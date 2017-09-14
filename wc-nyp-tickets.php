@@ -35,14 +35,14 @@ class WC_NYP_Tickets {
 
 	/**
 	 * @var WC_NYP_Tickets - the single instance of the class
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 */
 	protected static $instance = null;            
 
 	/**
 	 * Plugin Directory
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @var string $dir
 	 */
 	public static $dir = '';
@@ -50,7 +50,7 @@ class WC_NYP_Tickets {
 	/**
 	 * Plugin URL
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @var string $url
 	 */
 	public static $url = '';
@@ -64,7 +64,7 @@ class WC_NYP_Tickets {
 	 * @static
 	 * @see WC_NYP_Tickets()
 	 * @return WC_NYP_Tickets - Main instance
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof WC_NYP_Tickets ) ) {
@@ -123,8 +123,14 @@ class WC_NYP_Tickets {
 	/**
 	 * Make the plugin translation ready
 	 *
+	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+	 *
+	 * Locales found in:
+	 *      - WP_LANG_DIR/plugins/wc-nyp-tickets-LOCALE.mo
+	 *      - WP_CONTENT_DIR/plugins/woocommerce-name-your-price-event-tickets/languages/wc-nyp-tickets-LOCALE.mo
+	 *
 	 * @return void
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'wc-nyp-tickets' , false , dirname( plugin_basename( __FILE__ ) ) .  '/languages/' );
@@ -139,7 +145,7 @@ endif; // end class_exists check
 /**
  * Returns the main instance of WC_NYP_Tickets to prevent the need to use globals.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @return WC_NYP_Tickets
  */
 function WC_NYP_Tickets() {
