@@ -25,7 +25,7 @@ class WC_NYP_Tickets_Display {
 
 		add_filter( 'tribe_get_cost', array( $this, 'nyp_event_cost' ), 10, 3 );
 		add_filter( 'tribe_events_tickets_woo_cart_class', array( $this, 'add_form_class' ) );
-		add_filter( 'tribe_events_tickets_woo_cart_column_class', array( $this, 'add_column_class' ) );
+		add_filter( 'tribe_events_tickets_row_class', array( $this, 'add_row_class' ) );
 		add_filter( 'tribe_events_wootickets_ticket_price_html', array( $this, 'nyp_ticket_price' ), 10, 3 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_nyp_scripts' ), 20 );
 
@@ -94,13 +94,13 @@ class WC_NYP_Tickets_Display {
 	}
 
 	/**
-	 * Adds cart class to input wrapper <td>
+	 * Adds cart class to input wrapper <tr>
 	 *
-	 * @param array $class
+	 * @param array $classes
 	 *
 	 * @return array
 	 */
-	public function add_column_class( $classes ) {
+	public function add_row_class( $classes ) {
 		$classes[] = 'cart';
 		return $classes;
 	}
