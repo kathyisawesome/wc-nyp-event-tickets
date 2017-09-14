@@ -82,11 +82,11 @@ class WC_NYP_Tickets {
 
 	public function __construct(){
 
-		// Load core files
-		add_action( 'wc_name_your_price_loaded', array( $this, 'required_files' ), 20 );
+		// Load core files.
+		add_action( 'plugins_loaded', array( $this, 'required_files' ), 20 );
 
-		// Load translation files
-		add_action( 'wc_name_your_price_loaded', array( $this, 'load_plugin_textdomain' ), 20 );
+		// Load translation files.
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
 
 	}
 
