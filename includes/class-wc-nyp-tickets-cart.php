@@ -42,3 +42,5 @@ class WC_NYP_Tickets_Cart {
 	}
 
 }
+
+return new WC_NYP_Tickets_Cart();

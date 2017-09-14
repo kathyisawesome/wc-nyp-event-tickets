@@ -55,6 +55,22 @@ class WC_NYP_Tickets {
 	 */
 	private $plugin_url = '';
 
+	/**
+	 * Plugin Display Class
+	 *
+	 * @since 1.0.0
+	 * @var string $display
+	 */
+	private $display = '';
+
+	/**
+	 * Plugin Cart Class
+	 *
+	 * @since 1.0.0
+	 * @var string $cart
+	 */
+	private $cart = '';
+
 
 	/**
 	 * Main WC_NYP_Tickets Instance
@@ -100,10 +116,8 @@ class WC_NYP_Tickets {
 		if( is_admin() ){
 			include_once( 'includes/class-wc-nyp-tickets-admin.php' );
 		} else {
-			include_once( 'includes/class-wc-nyp-tickets-display.php' );
-			include_once( 'includes/class-wc-nyp-tickets-cart.php' );
-			$this->display = new WC_NYP_Tickets_Display();
-			$this->cart = new WC_NYP_Tickets_Cart();
+			$this->display = include_once( 'includes/class-wc-nyp-tickets-display.php' );
+			$this->cart = include_once( 'includes/class-wc-nyp-tickets-cart.php' );
 		}
 	}
 
@@ -160,6 +174,28 @@ class WC_NYP_Tickets {
 		}
 		return $this->plugin_url;
 	}
+
+	/**
+	 * Get the display class
+	 *
+	 * @return mixed obj|null string
+	 * @since  1.1.0
+	 */
+	public function get_display_class() {
+		return $this->display;
+	}
+
+	/**
+	 * Get the cart class
+	 *
+	 * @return mixed obj|null string
+	 * @since  1.1.0
+	 */
+	public function get_cart_class() {
+		return $this->cart;
+	}
+
+
 } //end class: do not remove or there will be no more guacamole for you
 
 endif; // end class_exists check

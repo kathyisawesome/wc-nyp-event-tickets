@@ -147,3 +147,5 @@ class WC_NYP_Tickets_Display {
 	}
 
 } //end class
+
+return new WC_NYP_Tickets_Display();
