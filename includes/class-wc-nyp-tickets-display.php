@@ -126,7 +126,7 @@ class WC_NYP_Tickets_Display {
 				}
 			} else {
 				ob_start();
-				WC_Name_Your_Price()->display->display_price_input( $product, '-ticket-' . $product->id );
+				WC_Name_Your_Price()->display->display_price_input( $product, '-ticket-' . $product->get_id() );
 				$input_html = ob_get_contents();
 				ob_get_clean();
 				$price_html .= $input_html;

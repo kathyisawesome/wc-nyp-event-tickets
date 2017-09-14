@@ -80,23 +80,31 @@ class WC_NYP_Tickets_Admin {
 	 */
 	public static function save_nyp_data( $ticket_id, $event_id, $raw_data ){
 
-	   	if ( isset( $raw_data['ticket_is_nyp'] ) ) {
-			update_post_meta( $ticket_id, '_nyp', 'yes' );
-			// removing the sale price removes NYP items from Sale shortcodes
-			update_post_meta( $ticket_id, '_sale_price', '' );
-			delete_post_meta( $ticket_id, '_has_nyp' );
-		} else {
-			update_post_meta( $ticket_id, '_nyp', 'no' );
-		}
+		$product = wc_get_product( $ticket_id );
 
-		if ( isset( $raw_data['suggested_ticket_price'] ) ) {
-			$suggested = ( trim( $raw_data['suggested_ticket_price'] ) === '' ) ? '' : wc_format_decimal( $raw_data['suggested_ticket_price'] );
-			update_post_meta( $ticket_id, '_suggested_price', $suggested );
-		}
+		if ( is_a( $product, 'WC_Product' )) {
 
-		if ( isset( $raw_data['min_ticket_price'] ) ) {
-			$minimum = ( trim( $raw_data['min_ticket_price'] ) === '' ) ? '' : wc_format_decimal( $raw_data['min_ticket_price'] );
-			update_post_meta( $ticket_id, '_min_price', $minimum );
+		   	if ( isset( $raw_data['ticket_is_nyp'] ) ) {
+				$product->update_meta_data( '_nyp', 'yes' );
+				// removing the sale price removes NYP items from Sale shortcodes
+				$product->set_sale_price( '' );
+				$product->delete_meta_data( '_has_nyp' );
+			} else {
+				$product->update_meta_data( '_nyp', 'no' );
+			}
+
+			if ( isset( $raw_data['suggested_ticket_price'] ) ) {
+				$suggested = ( trim( $raw_data['suggested_ticket_price'] ) === '' ) ? '' : wc_format_decimal( $raw_data['suggested_ticket_price'] );
+				$product->update_meta_data( '_suggested_price', $suggested );
+			}
+
+			if ( isset( $raw_data['min_ticket_price'] ) ) {
+				$minimum = ( trim( $raw_data['min_ticket_price'] ) === '' ) ? '' : wc_format_decimal( $raw_data['min_ticket_price'] );
+				$product->update_meta_data( '_min_price', $minimum );
+			}
+
+			$product->save();
+
 		}
 		
 	}
