@@ -163,8 +163,8 @@ module.exports = function(grunt) {
 
 grunt.registerTask( 'docs', [ 'wp_readme_to_markdown'] );
 
-grunt.registerTask( 'default', [ 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot', 'wp_readme_to_markdown' ] );
+grunt.registerTask( 'default', [ 'jshint' ] );
 
-grunt.registerTask( 'build', [ 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot', 'wp_readme_to_markdown', 'clean:build', 'copy:build'] );
+grunt.registerTask( 'build', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot' ] );
 
 };
