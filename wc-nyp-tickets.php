@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WooCommerce Name Your Price Event Tickets
+ * Plugin Name: WooCommerce Name Your Price - Event Tickets
  * Plugin URI:  http://github.com/helgatheviking/woocommerce-name-your-price-tickets
  * Description: Bridge plugin for adding NYP support to Modern Tribe&#39;s Tickets Plus
  * Version: 1.1.1
