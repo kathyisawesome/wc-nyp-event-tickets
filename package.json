@@ -12,7 +12,7 @@
     "url": "https://github.com/helgatheviking/woocommerce-name-your-price-event-tickets/issues"
   },
   "devDependencies": {
-    "grunt": "~1.0.4",
+    "grunt": "~1.1.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "~2.1.0",
