@@ -20,25 +20,25 @@ class WC_NYP_Tickets_Cart {
 	 */
 	public function __construct() {
 
-		// NYP needs a prefix to handle multiple inputs on the same page
-		add_filter( 'nyp_field_prefix', array( $this, 'nyp_cart_prefix_for_tickets' ), 9, 2 );
+		// NYP needs a suffix to handle multiple inputs on the same page
+		add_filter( 'wc_nyp_field_suffix', array( $this, 'nyp_cart_suffix_for_tickets' ), 9, 2 );
 
 	}
 
 
 	/**
-	 * get the ticket's nyp prefix
+	 * get the ticket's nyp suffix
 	 *
-	 * @param str $prefix
+	 * @param str $suffix
 	 * @param int	$product_id
 	 * @return str
 	 * @since  1.0.0
 	 */
-	public function nyp_cart_prefix_for_tickets( $prefix, $product_id ) {
+	public function nyp_cart_suffix_for_tickets( $suffix, $product_id ) {
 		if( isset( $_POST['wootickets_process'] ) && $_POST['wootickets_process'] == 1 ){
-			$prefix = '-ticket-' . $product_id;
+			$suffix = '-ticket-' . $product_id;
 		}
-		return $prefix;
+		return $suffix;
 	}
 
 }
