@@ -104,7 +104,7 @@ class WC_NYP_Tickets {
 		}
 
 		// Load core files.
-		add_action( 'plugins_loaded', array( $this, 'required_files' ), 20 );
+		self::required_files();
 
 	}
 
@@ -179,7 +179,7 @@ class WC_NYP_Tickets {
 	 * @return      void
 	 * @since       0.1.0
 	 */
-	public function required_files(){
+	public function required_files() {
 		// include admin class to handle all backend functions
 		if( is_admin() ){
 			include_once( 'includes/class-wc-nyp-tickets-admin.php' );
@@ -280,4 +280,4 @@ function WC_NYP_Tickets() {
 }
 
 // Launch the whole plugin
-add_action( 'plugins_loaded', 'WC_NYP_Tickets' );
+add_action( 'plugins_loaded', 'WC_NYP_Tickets', 20 );
