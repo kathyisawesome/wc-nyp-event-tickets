@@ -18,7 +18,7 @@ class WC_NYP_Tickets_Admin {
 	 */
 	public static function init() {
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'meta_box_script' ) );
-		add_action( 'tribe_events_tickets_metabox_edit_main', array( __CLASS__, 'do_metabox_advanced_options' ), 10, 2 );
+		add_action( 'tribe_events_tickets_metabox_edit_main', array( __CLASS__, 'do_metabox_advanced_options' ), 5, 2 );
 		add_action( 'event_tickets_after_save_ticket', array( __CLASS__, 'save_nyp_data' ), 10, 4 );
 	}
 
