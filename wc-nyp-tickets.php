@@ -143,7 +143,7 @@ class WC_NYP_Tickets {
 			$has_min_environment = false;
 		}
 
-		if( ! empty( $notices ) ) { error_log(json_encode( $notices));
+		if( ! empty( $notices ) ) {
 			update_option( 'wc_nyp_tickets_notices', $notices );
 		}
 		return $has_min_environment;
