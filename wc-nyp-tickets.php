@@ -42,12 +42,20 @@ class WC_NYP_Tickets {
 	protected static $instance = null;            
 
 	/**
+	 * Directory of the plugin
+	 *
+	 * @since 2.0.0
+	 * @var string
+	 */
+	public $plugin_dir;
+
+	/**
 	 * Plugin Directory Path
 	 *
 	 * @since 1.0.0
 	 * @var string $plugin_path
 	 */
-	private $plugin_path = '';
+	public $plugin_path = '';
 
 	/**
 	 * Plugin URL
@@ -55,7 +63,7 @@ class WC_NYP_Tickets {
 	 * @since 1.0.0
 	 * @var string $plugin_url
 	 */
-	private $plugin_url = '';
+	public $plugin_url = '';
 
 	/**
 	 * Plugin Display Class
@@ -72,7 +80,6 @@ class WC_NYP_Tickets {
 	 * @var string $cart
 	 */
 	private $cart = '';
-
 
 	/**
 	 * Main WC_NYP_Tickets Instance
@@ -92,7 +99,12 @@ class WC_NYP_Tickets {
 	}
 
 
-	public function __construct(){
+	public function __construct() {
+
+		// Properties needed for Tribe_Template.
+		$this->plugin_path = trailingslashit( dirname( __FILE__ ) );
+		$this->plugin_dir  = trailingslashit( basename( $this->plugin_path ) );
+		$this->plugin_url  = plugins_url() . '/' . $this->plugin_dir;
 
 		// Load translation files.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
@@ -182,11 +194,12 @@ class WC_NYP_Tickets {
 	public function required_files() {
 		// include admin class to handle all backend functions
 		if( is_admin() ){
-			include_once( 'includes/class-wc-nyp-tickets-admin.php' );
-		} else {
-			$this->display = include_once( 'includes/class-wc-nyp-tickets-display.php' );
-			$this->cart = include_once( 'includes/class-wc-nyp-tickets-cart.php' );
+			include_once 'includes/class-wc-nyp-tickets-admin.php';
 		}
+		
+		$this->display = include_once 'includes/class-wc-nyp-tickets-display.php';
+		$this->cart    = include_once 'includes/class-wc-nyp-tickets-cart.php';
+		
 	}
 
 
@@ -224,9 +237,6 @@ class WC_NYP_Tickets {
 	 * @since  1.1.0
 	 */
 	public function get_plugin_path() {
-		if( ! $this->plugin_path ) {
-			$this->plugin_path = untrailingslashit( plugin_dir_path(__FILE__) );
-		}
 		return $this->plugin_path;
 	}
 
@@ -237,9 +247,6 @@ class WC_NYP_Tickets {
 	 * @since  1.1.0
 	 */
 	public function get_plugin_url() {
-		if( ! $this->plugin_url ) {
-			$this->plugin_url = untrailingslashit( plugin_dir_url(__FILE__) );
-		}
 		return $this->plugin_url;
 	}
 
@@ -263,10 +270,53 @@ class WC_NYP_Tickets {
 		return $this->cart;
 	}
 
+	/*-----------------------------------------------------------------------------------*/
+	/* Helpers */
+	/*-----------------------------------------------------------------------------------*/
 
-} //end class: do not remove or there will be no more guacamole for you
+	/**
+	 * Helper function to see if Event has any NYP tickets.
+	 *
+	 * @param id	$event_id The event ID.
+	 * @param bool	$force_check Bypass the event meta, force check all the tickets.
+	 * @return bool
+	 * @since  2.0.0
+	 */
+	public function event_has_nyp( $event_id, $force_check = false ) {
 
-endif; // end class_exists check
+		$has_nyp = false;
+
+		if ( $force_check ) {
+
+			/** @var \Tribe__Tickets_Plus__Commerce__WooCommerce__Main $woo */
+			$woo = tribe( 'tickets-plus.commerce.woo' );
+			
+			// Get all tickets for event.
+			$tickets = $woo->get_tickets_ids( $event_id );
+			
+			if( $tickets ) {
+			
+				foreach ( $tickets as $ticket_id ) {
+					if ( WC_Name_Your_Price_Helpers::is_nyp( $ticket_id ) ) {
+						$has_nyp = true;
+						break;
+					}
+				}
+
+			}
+
+		} else {
+
+			$has_nyp = 'yes' === get_post_meta( $event_id, '_has_nyp', true );
+
+		}
+
+		return $has_nyp;
+	}
+
+} // End class: do not remove or there will be no more guacamole for you.
+
+endif; // End class_exists check.
 
 
 /**
