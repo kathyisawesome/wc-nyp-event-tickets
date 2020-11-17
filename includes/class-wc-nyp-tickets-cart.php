@@ -20,7 +20,7 @@ class WC_NYP_Tickets_Cart {
 	 */
 	public function __construct() {
 
-		// NYP needs a suffix to handle multiple inputs on the same page
+		// NYP needs a suffix to handle multiple inputs on the same page.
 		add_filter( 'wc_nyp_field_suffix', array( $this, 'nyp_cart_suffix_for_tickets' ), 9, 2 );
 
 	}
@@ -35,7 +35,7 @@ class WC_NYP_Tickets_Cart {
 	 * @since  1.0.0
 	 */
 	public function nyp_cart_suffix_for_tickets( $suffix, $product_id ) {
-		if( isset( $_POST['wootickets_process'] ) && $_POST['wootickets_process'] == 1 ){
+		if( tribe_events_product_is_ticket( $product_id ) ) {
 			$suffix = '-ticket-' . $product_id;
 		}
 		return $suffix;
