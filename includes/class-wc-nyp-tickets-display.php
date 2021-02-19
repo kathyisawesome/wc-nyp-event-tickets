@@ -205,6 +205,10 @@ class WC_NYP_Tickets_Display {
 			.has-nyp-tickets .tribe-common.tribe-tickets {
 				max-width: initial;
 			}
+
+			.has-nyp-tickets .tribe-tickets .suggested-price {
+				margin-bottom: 1.5em;
+			}
 			
 		</style>
 

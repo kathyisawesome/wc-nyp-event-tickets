@@ -23,6 +23,8 @@ $provider_class = $provider->class_name;
 ?>
 <div <?php tribe_classes( $classes ); ?>>
 
+	<?php echo WC_Name_Your_Price()->display->display_suggested_price( $ticket->ID ); ?>
+
 	<span class="tribe-common-b2">
 		<?php echo WC_Name_Your_Price()->display->display_price_input( $ticket->ID, '-ticket-' . $ticket->ID ); ?>
 	</span>
