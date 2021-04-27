@@ -11,7 +11,12 @@
 
 Add Name Your Price Support to Events Tickets
 
-Requires Requires WooCommerce 4.0+, The Events Calendar 5.0+, Event Tickets 5.0+, and Events Tickets Plus 5.0+
+## Important ##
+
+1. This is available as is and does not receive priority support.
+2. Requires Requires WooCommerce 4.0+, The Events Calendar 5.0+, Event Tickets 5.0+, and Events Tickets Plus 5.0+
+3. Supporting the Event Tickets v2 templates is a work in progress.
+4. Event tickets modal UI is currently _not_ supported.
 
 ![Front end price input for ticket, a ticket name appears in the table with a text input for the price.](https://user-images.githubusercontent.com/507025/99322524-56cf5600-282d-11eb-8c48-896f73eb14d9.png "Front end price input for ticket")
 
