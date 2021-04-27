@@ -28,8 +28,5 @@ $provider_class = $provider->class_name;
 	<span class="tribe-common-b2">
 		<?php echo WC_Name_Your_Price()->display->display_price_input( $ticket->ID, '-ticket-' . $ticket->ID ); ?>
 	</span>
-	<span class="tribe-tickets__sale_price">
-		<span style="display:none;" class="tribe-amount"></span>
-	</span>
 
 </div>

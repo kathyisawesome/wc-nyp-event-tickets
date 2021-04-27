@@ -32,6 +32,8 @@ class WC_NYP_Tickets_Display {
 		
 		add_filter( 'tribe_template_html:tickets/blocks/tickets/extra-price', array( $this, 'ticket_nyp_html' ), 10, 4 );
 
+		add_filter( 'tribe_template_html:tickets/v2/tickets/item/extra/price', array( $this, 'v2_ticket_nyp_html' ), 10, 4 );
+
 		add_action( 'wp_head', array( $this, 'ticket_nyp_css' ) );
 
 	}
@@ -89,7 +91,7 @@ class WC_NYP_Tickets_Display {
 
 			wp_add_inline_script( 'woocommerce-nyp', '
 				jQuery( function( $ ) {
-					$( ".tribe-tickets" ).each(	function() {
+					$( ".tribe-tickets, .tribe-tickets__tickets-form" ).each(	function() {
 
 						var $ticket_form = $(this);
 
@@ -119,7 +121,10 @@ class WC_NYP_Tickets_Display {
 
 						// Run validation on submit, by switching the add to cart button element.
 						$ticket_form.on( "wc-nyp-initializing", function( event, nypForm ) {
-							nypForm.$add_to_cart = $ticket_form.find( "#tribe-tickets__buy" );
+							var $add_to_cart = $ticket_form.find( "#tribe-tickets__tickets-buy" );
+							if ( $add_to_cart.length ) {
+								nypForm.$add_to_cart = $add_to_cart;
+							}
 						} );
 
 						$( this ).wc_nyp_form();
@@ -150,7 +155,7 @@ class WC_NYP_Tickets_Display {
 
 
 	/**
-	 * Mark products as optional.
+	 * Replace v1 extra price html with NYP input.
 	 *
 	 * @since 2.0.0
 	 * @see https://docs.theeventscalendar.com/reference/hooks/tribe_template_htmlhook_name/
@@ -186,6 +191,44 @@ class WC_NYP_Tickets_Display {
 		return $html;
 	}
 
+	/**
+	 * Replace v2 price html with NYP info.
+	 *
+	 * @since 2.0.0
+	 * @see https://docs.theeventscalendar.com/reference/hooks/tribe_template_htmlhook_name/
+	 * 
+	 * @param string $html      The final HTML
+	 * @param string $file      Complete path to include the PHP File
+	 * @param array  $name      Template name
+	 * @param self   $template  Current instance of the Tribe__Template
+	 * @return string
+	 */
+	public function v2_ticket_nyp_html( $html, $file, $name, $template ) {
+		
+		/** @var Tribe__Tickets__Tickets $provider */
+		$provider = $template->get( 'provider' );
+
+		if ( 'woo' === $provider->orm_provider ) {
+
+			/** @var Tribe__Tickets__Ticket_Object $ticket */
+			$ticket = $template->get( 'ticket' );
+
+			/** @var Tribe__Tickets__NYP__Template $template */
+	  		$template = tribe( 'tickets-plus.nyp.template' );
+
+			if ( WC_Name_Your_Price_Helpers::is_nyp( $ticket->ID ) ) {
+
+				$this->load_nyp_scripts();
+
+				$html = $template->template( 'v2/tickets/item/extra/nyp-price', [ 'ticket' => $ticket, 'provider' => $provider ], false );
+			}
+
+		}
+
+		return $html;
+	}
+
+
 
 	/**
 	 * Mark products as optional.
@@ -196,17 +239,29 @@ class WC_NYP_Tickets_Display {
 		
 		<style>
 			@media (min-width: 768px) {
-				.has-nyp-tickets .tribe-common .tribe-tickets__item, .has-nyp-tickets.entry .entry-content .tribe-common .tribe-tickets__item {
-					-ms-grid-columns: 6.6fr 4fr 2fr;
+				.has-nyp-tickets .tribe-common .tribe-tickets__item,
+				.has-nyp-tickets.entry .entry-content .tribe-common .tribe-tickets__item
+				{
+					-ms-grid-columns: 6.5fr 3fr 2fr;
 					grid-template-columns: 6.5fr 3fr 2fr;
-					-ms-grid-rows: 1fr 1.5fr 1fr;
+					-ms-grid-rows: 6.5fr 3fr 2fr;
+				}
+				.has-nyp-tickets .tribe-common .tribe-tickets__tickets-item,
+				.has-nyp-tickets.entry .entry-content .tribe-common .tribe-tickets__tickets-item
+				{
+					-ms-grid-columns: 3fr 3fr;
+					grid-template-columns: 3fr 3fr;
+					-ms-grid-rows: 3fr 3fr;
 				}
 			}
-			.has-nyp-tickets .tribe-common.tribe-tickets {
+			.has-nyp-tickets .tribe-common.tribe-tickets,
+			.has-nyp-tickets .event-tickets .tribe-tickets__tickets-form,
+			.has-nyp-tickets.entry .entry-content .event-tickets .tribe-tickets__tickets-form
+			{
 				max-width: initial;
 			}
 
-			.has-nyp-tickets .tribe-tickets .suggested-price {
+			.tribe-tickets .suggested-price {
 				margin-bottom: 1.5em;
 			}
 			
