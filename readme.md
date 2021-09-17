@@ -1,23 +1,35 @@
 # WooCommerce Name Your Price Event Tickets #
 
-**Contributors:** [Kathy Darling](https://profiles.wordpress.org/helgatheviking)  
-**Requires at least:** 4.6.1      
-**Tested up to:** 4.6.1      
-**Stable tag:** 2.0.0-beta.1
-**License:** GPLv3      
-**License URI:** http://www.gnu.org/licenses/gpl-3.0.html      
-**WC requires at least:** 4.0.0      
-**WC tested up to:** 4.7.0     
+## What's This?
 
-Add Name Your Price Support to Events Tickets
+Bridge plugin that adds Name Your Price support to Event Tickets Plus.
+
+![Screen Recording of Front end event view. A table lists all the tickets for this event. The "pay what you want" ticket displays a price input](https://user-images.githubusercontent.com/507025/133818392-57d57ad5-a14a-4c92-b57b-f3f5780d05a2.gif "Front end price input for ticket")
+
+## Minimum Requirements ##
+* WooCommerce 5.0+
+* WooCommerce Name Your Price 3.0+
+* Events Tickets Plus 5.2.10+
+
+### Set up
+
+1. Create a new event.
+2. Create ticket for that event.
+3. In the ticket admin, check the "Name Your Price" checkbox.
+4. Fill in suggested and minimum prices as needed.
+5. Save ticket.
+
+![Backend checkbox to toggle Name Your Price functionality for ticket, a checkbox toggles Name Your Price on and off. When on suggested and minimum price fields appear.](https://user-images.githubusercontent.com/507025/133639552-c14943c9-734d-43dd-9b84-b27a7367d6ef.png "Backend checkbox to toggle Name Your Price functionality for ticket")
 
 ## Important ##
 
-1. This is available as is and does not receive priority support.
-2. Requires Requires WooCommerce 4.0+, The Events Calendar 5.0+, Event Tickets 5.0+, and Events Tickets Plus 5.0+
-3. Supporting the Event Tickets v2 templates is a work in progress.
-4. Event tickets modal UI is currently _not_ supported.
+1. This plugin is available _as is_ and does not receive priority support.
+2. Version 2.0 will _only_ support the Events v2 templates. If you are using the older templates, you can try to use the [last v1 of the bridge plugin](https://github.com/kathyisawesome/wc-nyp-event-tickets/tree/1.0.2). 
 
-![Front end price input for ticket, a ticket name appears in the table with a text input for the price.](https://user-images.githubusercontent.com/507025/99322524-56cf5600-282d-11eb-8c48-896f73eb14d9.png "Front end price input for ticket")
 
-![Backend checkbox to toggle Name Your Price functionality for ticket, a checkbox toggles Name Your Price on and off. When on suggested and minimum price fields appear.](https://user-images.githubusercontent.com/507025/99322461-38695a80-282d-11eb-845d-30dbaa69ebb8.png "Backend checkbox to toggle Name Your Price functionality for ticket")
+
+
+
+
+
+
