@@ -31,7 +31,7 @@ class WC_NYP_Tickets {
 
 	const VERSION = '2.0.0-beta.1';
 	const PREFIX  = 'WC_NYP_Tickets';
-	const REQUIRED_WC = '4.7.0';
+	const REQUIRED_WC = '5.0.0';
 	const REQUIRED_NYP = '3.0.0';
 	const REQUIRED_TICKETS = '5.0.0';
 
