@@ -43,6 +43,7 @@ module.exports = function(grunt) {
 	},
 	jshint: {
 		options: {
+			esversion: 6,
 			reporter: require('jshint-stylish'),
 			globals: {
 				"EO_SCRIPT_DEBUG": false,
