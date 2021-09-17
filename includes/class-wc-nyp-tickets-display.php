@@ -196,7 +196,6 @@ class WC_NYP_Tickets_Display {
 	}
 
 
-
 	/**
 	 * Mark products as optional.
 	 *
@@ -230,6 +229,14 @@ class WC_NYP_Tickets_Display {
 
 			.tribe-tickets .suggested-price {
 				margin-bottom: 1.5em;
+			}
+			.tribe-tickets__form:not(#tribe-tickets__modal-form) .nyp-product .tribe-tickets__tickets-sale-price {
+				display: none;
+			}
+
+			#tribe-tickets__modal-form .suggested-price,
+			#tribe-tickets__modal-form .nyp {
+				display: none;
 			}
 			
 		</style>
