@@ -1,6 +1,6 @@
 <?php
 /**
- * Block: Tickets
+ * Block: NYP Tickets
  * Extra column, price
  *
  * Override this template in your own theme by creating a file at:
@@ -10,9 +10,9 @@
  *
  * @link    https://m.tri.be/1amp Help article for RSVP & Ticket template files.
  *
- * @since   5.0.3
+ * @since   2.0.0
  *
- * @version 5.0.3
+ * @version 2.0.0
  *
  * @var Tribe__Tickets__Editor__Template   $this                        [Global] Template object.
  * @var int                                $post_id                     [Global] The current Post ID to which tickets are attached.
@@ -55,12 +55,13 @@ $classes = [
 $has_suffix = ! empty( $ticket->price_suffix );
 ?>
 <div <?php tribe_classes( $classes ); ?>>
+
 	<?php echo WC_Name_Your_Price()->display->display_suggested_price( $ticket->ID ); ?>
 
-	<span class="tribe-common-b2 tribe-tickets__tickets-sale-price">
-		<?php echo WC_Name_Your_Price()->display->display_price_input( $ticket->ID, '-ticket-' . $ticket->ID ); ?>
+	<?php echo WC_Name_Your_Price()->display->display_price_input( $ticket->ID, '-ticket-' . $ticket->ID ); ?>
 
-		<span style="display:none;" class="tribe-amount"></span>
+	<span class="tribe-tickets__tickets-sale-price">
+		<?php echo $currency->get_formatted_currency_with_symbol( $ticket->price, $post_id, $provider->class_name ); ?>
 	</span>
 
 </div>
