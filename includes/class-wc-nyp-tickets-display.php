@@ -35,6 +35,8 @@ class WC_NYP_Tickets_Display {
 		add_filter( 'tribe_template_html:tickets/v2/tickets/item/extra/price', array( $this, 'v2_ticket_nyp_html' ), 10, 4 );
 		add_action( 'wp_head', array( $this, 'ticket_nyp_css' ) );
 
+		add_filter( 'wc_nyp_disable_edit_it_cart', array( $this, 'disable_edit_link_in_cart' ), 10, 2 );
+
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -244,6 +246,28 @@ class WC_NYP_Tickets_Display {
 		<?php
 	}
 
+
+	/*-----------------------------------------------------------------------------------*/
+	/* Cart */
+	/*-----------------------------------------------------------------------------------*/
+
+	/**
+	 * Remove edit link from NYP Tickets in cart.
+	 * 
+	 * @since 2.0.0
+	 * 
+	 * @param boolean $disable
+	 * @param array $cart_item - The WooCommerce cart item array.
+	 * @return bool
+	 */
+	public function disable_edit_link_in_cart( $disable, $cart_item ) {
+		if ( tribe_events_product_is_ticket( $cart_item[ 'product_id' ] ) ) {
+			$disable = true;
+		}
+		return $disable;
+	}
+
+	
 	/*-----------------------------------------------------------------------------------*/
 	/* Deprecated */
 	/*-----------------------------------------------------------------------------------*/
