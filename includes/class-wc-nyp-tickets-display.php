@@ -6,6 +6,7 @@
  * @package		WooCommerce Name Your Price Event Tickets
  * @author		Kathy Darling
  * @since		1.0.0
+ * @version     2.0.0
  */
 
 // Exit if accessed directly
