@@ -126,11 +126,13 @@ jQuery( function( $ ) {
     /**
      * Validate modal form before allowing submit.
      */
-    $( document ).on( 'isValidForm.eventTicketsModal', function( event, $form ) {
+    $( document ).on( 'isValidForm.eventTicketsModal isValidForm.tribeTicketsBlock', function( event, $form ) {
 
          const nypForm = $form.wc_nyp_get_script_object();
     
         if ( nypForm && ! nypForm.isValid( 'submit' ) ) { 
+
+            console.log("not valid");
             return false;
         } else {
             return true;
