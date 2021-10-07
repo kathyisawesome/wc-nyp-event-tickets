@@ -11,9 +11,9 @@
  * Text Domain: wc-nyp-tickets
  * Domain Path: /languages
  * Requires at least: 5.0.0
- * Tested up to: 5.5.0
- * WC requires at least: 4.7.0
- * WC tested up to: 4.7.0   
+ * Tested up to: 5.8.0
+ * WC requires at least: 5.7.0
+ * WC tested up to: 5.8.0   
  */
 
 /**
@@ -33,7 +33,7 @@ class WC_NYP_Tickets {
 	const PREFIX  = 'WC_NYP_Tickets';
 	const REQUIRED_WC = '5.0.0';
 	const REQUIRED_NYP = '3.0.0';
-	const REQUIRED_TICKETS = '5.0.0'; //'5.2.10'; << Update to 5.2 when 5.2 is available.
+	const REQUIRED_TICKETS = '5.2.10';
 
 	/**
 	 * @var WC_NYP_Tickets - the single instance of the class
