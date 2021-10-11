@@ -35,7 +35,7 @@ class WC_NYP_Tickets_Cart {
 	 * @since  1.0.0
 	 */
 	public function nyp_cart_suffix_for_tickets( $suffix, $product_id ) {
-		if( tribe_events_product_is_ticket( $product_id ) ) {
+		if ( tribe_events_product_is_ticket( $product_id ) ) {
 			$suffix = '-ticket-' . $product_id;
 		}
 		return $suffix;

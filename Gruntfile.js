@@ -43,6 +43,7 @@ module.exports = function(grunt) {
 	},
 	jshint: {
 		options: {
+			esversion: 6,
 			reporter: require('jshint-stylish'),
 			globals: {
 				"EO_SCRIPT_DEBUG": false,
@@ -157,13 +158,29 @@ module.exports = function(grunt) {
 			],
 	    	dest: 'build/',
 		},
-	}
+	},
+
+	// Make a zipfile.
+	compress: {
+		main: {
+			options: {
+				mode: 'zip',
+				archive: 'deploy/<%= pkg.version %>/<%= pkg.name %>.zip'
+			},
+			expand: true,
+			cwd: 'build/',
+			src: ['**/*'],
+			dest: '/<%= pkg.name %>'
+		}
+	},
 
 });
 
 grunt.registerTask( 'docs', [ 'wp_readme_to_markdown'] );
 
 grunt.registerTask( 'default', [ 'jshint' ] );
+
+grunt.registerTask( 'zip', [ 'copy', 'compress' ] );
 
 grunt.registerTask( 'build', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot' ] );
 

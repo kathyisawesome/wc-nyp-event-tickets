@@ -64,7 +64,7 @@ class WC_NYP_Tickets_Admin {
 				<label class="ticket_form_label ticket_form_left" for="suggested_ticket_price"><?php _e( 'Suggested Price:', 'wc-nyp-tickets' );?></label>
 				<input type="text" id="suggested_ticket_price" name="suggested_ticket_price" class="ticket_field ticket_form_right" size="7" value="<?php echo esc_attr( $suggested_price ); ?>">
 				<span class="tribe_soft_note ticket_form_right"
-					><?php esc_html_e( 'Price to pre-fill for customers.  Leave blank to not suggest a price.', 'wc-nyp-tickets' ); ?></span>
+					><?php esc_html_e( 'Price to replace the default price string.  Leave blank to not suggest a price.', 'wc-nyp-tickets' ); ?></span>
 			</div>
 			<div class="input_block min_ticket_price show_if_nyp hide tribe-dependent"
 				data-depends="#ticket_is_nyp"
