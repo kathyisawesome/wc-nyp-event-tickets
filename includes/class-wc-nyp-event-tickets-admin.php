@@ -52,28 +52,28 @@ class WC_NYP_Tickets_Admin {
 		
 		<fieldset id="ticket_form_nyp" class="main">
 			<div class="input_block ticket_is_nyp">
-				<label class="ticket_form_label ticket_form_left" for="ticket_is_nyp"><?php esc_html_e( 'Name Your Price', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ); ?></label>
+				<label class="ticket_form_label ticket_form_left" for="ticket_is_nyp"><?php esc_html_e( 'Name Your Price', 'wc-nyp-event-tickets' ); ?></label>
 				<input type="checkbox" id="ticket_is_nyp" name="ticket_is_nyp" value="yes" class="ticket_field ticket_form_right" <?php checked( $is_nyp, 'yes' );?> />
 				<span class="tribe_soft_note ticket_form_right"
-					><?php esc_html_e( 'Customers are allowed to determine their own price.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ); ?></span>
+					><?php esc_html_e( 'Customers are allowed to determine their own price.', 'wc-nyp-event-tickets' ); ?></span>
 			</div>
 		
 			<div class="input_block suggested_ticket_price show_if_nyp hide tribe-dependent"
 				data-depends="#ticket_is_nyp"
 				data-condition-is-checked>
-				<label class="ticket_form_label ticket_form_left" for="suggested_ticket_price"><?php _e( 'Suggested Price:', 'wc-nyp-tickets', 'wc-nyp-event-tickets' );?></label>
+				<label class="ticket_form_label ticket_form_left" for="suggested_ticket_price"><?php _e( 'Suggested Price:', 'wc-nyp-event-tickets' );?></label>
 				<input type="text" id="suggested_ticket_price" name="suggested_ticket_price" class="ticket_field ticket_form_right" size="7" value="<?php echo esc_attr( $suggested_price ); ?>">
 				<span class="tribe_soft_note ticket_form_right"
-					><?php esc_html_e( 'Price to replace the default price string.  Leave blank to not suggest a price.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ); ?></span>
+					><?php esc_html_e( 'Price to replace the default price string.  Leave blank to not suggest a price.', 'wc-nyp-event-tickets' ); ?></span>
 			</div>
 			<div class="input_block min_ticket_price show_if_nyp hide tribe-dependent"
 				data-depends="#ticket_is_nyp"
 				data-condition-is-checked>
 			
-				<label class="ticket_form_label ticket_form_left" for="min_ticket_price"><?php _e( 'Minimum Price:', 'wc-nyp-tickets', 'wc-nyp-event-tickets' );?></label>
+				<label class="ticket_form_label ticket_form_left" for="min_ticket_price"><?php _e( 'Minimum Price:', 'wc-nyp-event-tickets' );?></label>
 				<input type="text" id="min_ticket_price" name="min_ticket_price" class="ticket_field ticket_form_right" size="7" value="<?php echo esc_attr( $minimum_price ); ?>">
 				<span class="tribe_soft_note ticket_form_right"
-					><?php esc_html_e( 'Lowest acceptable price for ticket. Leave blank to not enforce a minimum.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ); ?></span>
+					><?php esc_html_e( 'Lowest acceptable price for ticket. Leave blank to not enforce a minimum.', 'wc-nyp-event-tickets' ); ?></span>
 			</div>
 		</fieldset>
 		<?php
