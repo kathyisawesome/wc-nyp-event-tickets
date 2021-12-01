@@ -1,6 +1,6 @@
 {
   "name": "wc-nyp-tickets",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0",
   "license": "GPL-3.0",
   "main": "Gruntfile.js",
   "author": "Kathy Darling",
