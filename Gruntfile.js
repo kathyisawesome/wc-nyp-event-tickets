@@ -182,6 +182,9 @@ grunt.registerTask( 'default', [ 'jshint' ] );
 
 grunt.registerTask( 'zip', [ 'copy', 'compress' ] );
 
+grunt.registerTask( 'build:dev', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify' ] );
 grunt.registerTask( 'build', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot' ] );
+
+grunt.registerTask( 'release', [ 'build', 'makepot', 'zip', 'clean' ] );
 
 };
