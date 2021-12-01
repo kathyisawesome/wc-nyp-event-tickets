@@ -1,5 +1,5 @@
 {
-  "name": "wc-nyp-tickets",
+  "name": "wc-nyp-event-tickets",
   "version": "2.0.0",
   "license": "GPL-3.0",
   "main": "Gruntfile.js",

@@ -8,7 +8,7 @@
  * Author URI:  http://www.kathyisawesome.com
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: wc-nyp-tickets
+ * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
  * Requires at least: 5.0.0
  * Tested up to: 5.8.0
@@ -133,7 +133,7 @@ class WC_NYP_Tickets {
 
 		// WC version sanity check.
 		if ( ! defined( 'WC_VERSION' ) || version_compare( WC_VERSION, self::REQUIRED_WC, '<' ) ) {
-			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-tickets' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">', '</a>', self::REQUIRED_WC );
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">', '</a>', self::REQUIRED_WC );
 
 			$notices[] = $notice;
 			$has_min_environment = false;
@@ -141,7 +141,7 @@ class WC_NYP_Tickets {
 
 		// Name Your Price version sanity check.
 		if ( ! function_exists( 'WC_Name_Your_Price' ) || version_compare( WC_Name_Your_Price()->version, self::REQUIRED_NYP, '<' ) ) {
-			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce Name Your Price plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce Name Your Price.', 'wc-nyp-tickets' ), '<a href="http://woocommerce.com/products/name-your-price/">', '</a>', self::REQUIRED_NYP );
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce Name Your Price plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce Name Your Price.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ), '<a href="http://woocommerce.com/products/name-your-price/">', '</a>', self::REQUIRED_NYP );
 
 			$notices[] = $notice;
 			$has_min_environment = false;
@@ -149,7 +149,7 @@ class WC_NYP_Tickets {
 
 		// Event Tickets version sanity check.
 		if ( ! class_exists( 'Tribe__Tickets_Plus__Main' ) || version_compare( Tribe__Tickets_Plus__Main::VERSION, self::REQUIRED_TICKETS, '<' ) ) {
-			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Tickets Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Tickets Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
 
 			$notices[] = $notice;
 			$has_min_environment = false;
@@ -194,11 +194,11 @@ class WC_NYP_Tickets {
 	public function required_files() {
 		// include admin class to handle all backend functions
 		if( is_admin() ){
-			include_once 'includes/class-wc-nyp-tickets-admin.php';
+			include_once 'includes/class-wc-nyp-event-tickets-admin.php';
 		}
 		
-		$this->display = include_once 'includes/class-wc-nyp-tickets-display.php';
-		$this->cart    = include_once 'includes/class-wc-nyp-tickets-cart.php';
+		$this->display = include_once 'includes/class-wc-nyp-event-tickets-display.php';
+		$this->cart    = include_once 'includes/class-wc-nyp-event-tickets-cart.php';
 		
 	}
 
@@ -222,7 +222,7 @@ class WC_NYP_Tickets {
 	 * @since  1.0.0
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wc-nyp-tickets' , false , dirname( plugin_basename( __FILE__ ) ) .  '/languages/' );
+		load_plugin_textdomain( 'wc-nyp-event-tickets' , false , dirname( plugin_basename( __FILE__ ) ) .  '/languages/' );
 	}
 
 

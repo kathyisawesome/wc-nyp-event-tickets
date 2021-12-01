@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Name Your Price - Event Tickets 2.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-nyp-event-tickets\n"
-"POT-Creation-Date: 2021-12-01 17:43:28+00:00\n"
+"POT-Creation-Date: 2021-12-01 18:34:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,51 +14,44 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: build/includes/class-wc-nyp-tickets-admin.php:55
-#: includes/class-wc-nyp-tickets-admin.php:55
+#: includes/class-wc-nyp-event-tickets-admin.php:55
 msgid "Name Your Price"
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-admin.php:58
-#: includes/class-wc-nyp-tickets-admin.php:58
+#: includes/class-wc-nyp-event-tickets-admin.php:58
 msgid "Customers are allowed to determine their own price."
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-admin.php:64
-#: includes/class-wc-nyp-tickets-admin.php:64
+#: includes/class-wc-nyp-event-tickets-admin.php:64
 msgid "Suggested Price:"
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-admin.php:67
-#: includes/class-wc-nyp-tickets-admin.php:67
+#: includes/class-wc-nyp-event-tickets-admin.php:67
 msgid ""
 "Price to replace the default price string.  Leave blank to not suggest a "
 "price."
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-admin.php:73
-#: includes/class-wc-nyp-tickets-admin.php:73
+#: includes/class-wc-nyp-event-tickets-admin.php:73
 msgid "Minimum Price:"
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-admin.php:76
-#: includes/class-wc-nyp-tickets-admin.php:76
+#: includes/class-wc-nyp-event-tickets-admin.php:76
 msgid "Lowest acceptable price for ticket. Leave blank to not enforce a minimum."
 msgstr ""
 
-#: build/includes/class-wc-nyp-tickets-display.php:79
-#: includes/class-wc-nyp-tickets-display.php:79
+#: includes/class-wc-nyp-event-tickets-display.php:79
 msgid "See below for pricing"
 msgstr ""
 
-#: build/wc-nyp-tickets.php:136 wc-nyp-tickets.php:136
+#: wc-nyp-event-tickets.php:136
 msgid ""
 "<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce "
 "plugin%s must be active and at least version %s for Name Your Price Tickets "
 "to function. Please upgrade or activate WooCommerce."
 msgstr ""
 
-#: build/wc-nyp-tickets.php:144 wc-nyp-tickets.php:144
+#: wc-nyp-event-tickets.php:144
 msgid ""
 "<strong>Name Your Price Tickets is inactive.</strong> The %sWooCommerce "
 "Name Your Price plugin%s must be active and at least version %s for Name "
@@ -66,7 +59,7 @@ msgid ""
 "Your Price."
 msgstr ""
 
-#: build/wc-nyp-tickets.php:152 wc-nyp-tickets.php:152
+#: wc-nyp-event-tickets.php:152
 msgid ""
 "<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Tickets "
 "Plus plugin%s must be active and at least version %s for Name Your Price "

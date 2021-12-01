@@ -76,7 +76,7 @@ class WC_NYP_Tickets_Display {
 	public function nyp_event_cost( $cost, $post_id, $with_currency_symbol ) {
 
 		if ( WC_NYP_Tickets()->event_has_nyp( $post_id ) ) {
-			$cost = apply_filters( 'wc_nyp_events_has_nyp_tickets_cost_string', __( 'See below for pricing', 'wc-nyp-tickets' ), $post_id );
+			$cost = apply_filters( 'wc_nyp_events_has_nyp_tickets_cost_string', __( 'See below for pricing', 'wc-nyp-tickets', 'wc-nyp-event-tickets' ), $post_id );
 		}
 				
 		return $cost;
