@@ -160,7 +160,7 @@ module.exports = function(grunt) {
 				'!package.json',
 				'!package-lock.json',
 				'!composer.json',
-				'!composer-lock.json',
+				'!composer.lock',
 				'!Gruntfile.js',
 				'!readme.md',
 				'!**/*.bak'				
