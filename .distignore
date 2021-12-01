@@ -3,6 +3,7 @@
 .gitignore
 Gruntfile.json
 package.json
+package-lock.json
 composer.json
 readme.md
 .sublime-project
@@ -12,3 +13,4 @@ webpack.prod.js
 phpcs.xml
 .jshintrc
 .babelrc
+vendor/
