@@ -1,0 +1,13 @@
+{
+    "name": "kathyisawesome/wc-nyp-event-tickets",
+    "description": "Bridge plugin for adding NYP support to Event Tickets Plus",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "helgatheviking",
+            "email": "507025+helgatheviking@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

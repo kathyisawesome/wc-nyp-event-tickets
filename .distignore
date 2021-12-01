@@ -3,6 +3,7 @@
 .gitignore
 Gruntfile.json
 package.json
+composer.json
 readme.md
 .sublime-project
 .afdesign
