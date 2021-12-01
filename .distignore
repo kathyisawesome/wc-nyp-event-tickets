@@ -1,0 +1,13 @@
+.github/
+.gitattributes
+.gitignore
+Gruntfile.json
+package.json
+readme.md
+.sublime-project
+.afdesign
+webpack.dev.js
+webpack.prod.js
+phpcs.xml
+.jshintrc
+.babelrc
