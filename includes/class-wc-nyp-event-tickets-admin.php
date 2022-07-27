@@ -58,7 +58,7 @@ class WC_NYP_Tickets_Admin {
 					><?php esc_html_e( 'Customers are allowed to determine their own price.', 'wc-nyp-event-tickets' ); ?></span>
 			</div>
 		
-			<div class="input_block suggested_ticket_price show_if_nyp hide tribe-dependent"
+			<div class="input_block suggested_ticket_price show_if_nyp tribe-dependent" style="display:none;"
 				data-depends="#ticket_is_nyp"
 				data-condition-is-checked>
 				<label class="ticket_form_label ticket_form_left" for="suggested_ticket_price"><?php _e( 'Suggested Price:', 'wc-nyp-event-tickets' );?></label>
@@ -66,7 +66,7 @@ class WC_NYP_Tickets_Admin {
 				<span class="tribe_soft_note ticket_form_right"
 					><?php esc_html_e( 'Price to replace the default price string.  Leave blank to not suggest a price.', 'wc-nyp-event-tickets' ); ?></span>
 			</div>
-			<div class="input_block min_ticket_price show_if_nyp hide tribe-dependent"
+			<div class="input_block min_ticket_price show_if_nyp tribe-dependent" style="display:none;"
 				data-depends="#ticket_is_nyp"
 				data-condition-is-checked>
 			
