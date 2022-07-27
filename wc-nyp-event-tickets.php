@@ -14,9 +14,10 @@
  * Tested up to: 5.8.0
  * WC requires at least: 5.7.0
  * WC tested up to: 5.8.0   
- */
-
-/**
+ *
+ * GitHub Plugin URI: https://github.com/kathyisawesome/wc-mnm-mobile-styles
+ * Release Asset: true
+ *
  * Copyright: © 2016 Kathy Darling.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -149,7 +150,7 @@ class WC_NYP_Tickets {
 
 		// Event Tickets version sanity check.
 		if ( ! class_exists( 'Tribe__Tickets_Plus__Main' ) || version_compare( Tribe__Tickets_Plus__Main::VERSION, self::REQUIRED_TICKETS, '<' ) ) {
-			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Tickets Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Ticket Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
 
 			$notices[] = $notice;
 			$has_min_environment = false;

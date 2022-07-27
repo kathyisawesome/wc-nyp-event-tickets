@@ -32,10 +32,6 @@ Bridge plugin that adds Name Your Price support to Event Tickets Plus.
 1. This plugin is available _as is_ and does not receive priority support.
 2. Version 2.0 will _only_ support the Events v2 templates. If you are using the older templates, you can try to use the [last v1 of the bridge plugin](https://github.com/kathyisawesome/wc-nyp-event-tickets/tree/1.0.2). 
 
+### Automatic plugin updates
 
-
-
-
-
-
-
+Plugin updates can be enabled by installing the [Git Updater](https://git-updater.com/) plugin.
