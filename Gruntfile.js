@@ -185,15 +185,55 @@ module.exports = function(grunt) {
 
 });
 
-grunt.registerTask( 'docs', [ 'wp_readme_to_markdown'] );
 
-grunt.registerTask( 'default', [ 'jshint' ] );
 
-grunt.registerTask( 'zip', [ 'copy', 'compress' ] );
+	// Register tasks.
+	grunt.registerTask(
+        'default',
+        [
+		'js',
+        ]
+    );
 
-grunt.registerTask( 'build:dev', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify' ] );
-grunt.registerTask( 'build', [ 'replace', 'jshint', 'newer:sass', 'newer:uglify', 'addtextdomain', 'makepot' ] );
+	grunt.registerTask(
+        'js',
+        [
+		'jshint',
+		'uglify:admin',
+		'uglify:frontend'
+        ]
+    );
 
-grunt.registerTask( 'release', [ 'build', 'makepot', 'zip', 'clean' ] );
+	grunt.registerTask(
+        'css',
+        [
+		'sass',
+		'rtlcss',
+		'postcss',
+		'cssmin'
+        ]
+    );
+
+	grunt.registerTask(
+        'assets',
+        [
+		'js',
+		'css'
+        ]
+    );
+
+	grunt.registerTask(
+        'zip',
+        [
+		'clean',
+		'copy',
+		'compress'
+        ]
+    );
+
+	grunt.registerTask( 'docs', [ 'wp_readme_to_markdown'] );
+	grunt.registerTask( 'dev', [ 'jshint', 'uglify', 'sass' ] );
+	grunt.registerTask( 'build', [ 'replace', 'assets', 'addtextdomain', 'makepot' ] );
+	grunt.registerTask( 'release', [ 'build', 'zip', 'clean' ] );
 
 };

@@ -12,9 +12,6 @@
 	    }
 	});
 
-	
-
-
 	/* Trigger chance on edit ticket */
 	$( '#event_tickets' ).on( 'event-tickets-plus-ticket-meta-initialized.tribe', function( event ) {
 		$( '#event_tickets' ).find( '#ticket_is_nyp' ).change();

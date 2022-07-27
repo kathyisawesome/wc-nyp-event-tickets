@@ -172,7 +172,7 @@ class WC_NYP_Tickets_Admin {
 			$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			$version = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WC_NYP_Tickets::VERSION;
 
-			wp_enqueue_script( 'nyp-event-tickets-admin', WC_NYP_Tickets()->get_plugin_url() . '/assets/js/wc-nyp-tickets-admin' . $suffix . '.js', array( 'event-tickets-plus-meta-admin-js' ), $version, true );
+			wp_enqueue_script( 'nyp-event-tickets-admin', WC_NYP_Tickets()->get_plugin_url() . '/assets/js/admin/wc-nyp-tickets-admin' . $suffix . '.js', array( 'event-tickets-plus-meta-admin-js' ), $version, true );
 		}
 
 	}	

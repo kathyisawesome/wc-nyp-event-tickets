@@ -26,5 +26,10 @@
     "grunt-wp-readme-to-markdown": "~2.1.0",
     "jshint-stylish": "~2.2.1",
     "load-grunt-tasks": "~5.1.0"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "dev": "grunt dev",
+    "release": "grunt release"
   }
 }

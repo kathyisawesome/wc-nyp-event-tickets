@@ -90,7 +90,7 @@ class WC_NYP_Tickets_Display {
 	public function register_nyp_scripts() {
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$version = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WC_NYP_Tickets::VERSION;
-		wp_register_script( 'wc-nyp-tickets', WC_NYP_Tickets()->plugin_url . '/assets/js/wc-nyp-tickets-frontend'. $suffix . '.js', array( 'woocommerce-nyp', 'tribe-tickets-block' ), $version, true );
+		wp_register_script( 'wc-nyp-tickets', WC_NYP_Tickets()->plugin_url . '/assets/js/frontend/wc-nyp-tickets-frontend'. $suffix . '.js', array( 'woocommerce-nyp', 'tribe-tickets-block' ), $version, true );
 	}
 
 	/**

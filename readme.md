@@ -1,5 +1,11 @@
 # WooCommerce Name Your Price Event Tickets #
 
+### Quickstart
+
+This is a developmental repo. Clone this repo and run `npm install && npm run build`   
+OR    
+[Download latest release](https://github.com/kathyisawesome/wc-nyp-event-tickets/releases/latest/)
+
 ## What's This?
 
 Bridge plugin that adds Name Your Price support to Event Tickets Plus.
