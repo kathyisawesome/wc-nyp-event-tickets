@@ -6,68 +6,82 @@ module.exports = function(grunt) {
   grunt.initConfig({
 	pkg: grunt.file.readJSON('package.json'),
 
-	// compile 
-	sass: {                              // Task
-		dist: {                          // Target
-			options: {                   // Target options
-				style: 'expanded',
-				sourcemap: 'none',
-			},
-			files: [{
-		        expand: true,
-		        cwd: 'assets/scss',
-		        src: ['*.scss'],
-		    	dest: 'assets/css',
-		        ext: '.css'
-		      }]
-		}
+	// Setting folder templates.
+	dirs: {
+		js: 'assets/js',
+		php: 'includes'
 	},
 
+	// Minify .js files.
 	uglify: {
 		options: {
-			compress: {
-				global_defs: {
-					"EO_SCRIPT_DEBUG": false
-				},
-				dead_code: true
-				},
-			banner: '/*! <%= pkg.title %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd HH:MM") %> */\n'
+			banner: '/*! <%= pkg.title %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd HH:MM") %> */\n',
+			ie8: true,
+			parse: {
+				strict: false
+			},
+			output: {
+				comments : /@license|@preserve|^!/
+			}
 		},
-		build: {
+		admin: {
 			files: [{
-				expand: true,	// Enable dynamic expansion.
-				src: ['assets/js/*.js', '!assets/js/*.min.js'], // Actual pattern(s) to match.
-				ext: '.min.js',   // Dest filepaths will have this extension.
+				expand: true,
+				cwd: '<%= dirs.js %>/admin/',
+				src: [
+				'*.js',
+				'!*.min.js'
+				],
+				dest: '<%= dirs.js %>/admin/',
+				ext: '.min.js'
+			}]
+		},
+		frontend: {
+			files: [{
+				expand: true,
+				cwd: '<%= dirs.js %>/frontend/',
+				src: [
+				'*.js',
+				'!*.min.js'
+				],
+				dest: '<%= dirs.js %>/frontend/',
+				ext: '.min.js'
 			}]
 		}
 	},
+
+	// JavaScript linting with JSHint.
 	jshint: {
 		options: {
-			esversion: 6,
-			reporter: require('jshint-stylish'),
+			reporter: require( 'jshint-stylish' ),
 			globals: {
 				"EO_SCRIPT_DEBUG": false,
 			},
-			 '-W099': true, //Mixed spaces and tabs
-			 '-W083': true,//TODO Fix functions within loop
-			 '-W082': true, //Todo Function declarations should not be placed in blocks
-			 '-W020': true, //Read only - error when assigning EO_SCRIPT_DEBUG a value.
+			'-W099': true, //Mixed spaces and tabs
+			'-W083': true,//TODO Fix functions within loop
+			'-W082': true, //Todo Function declarations should not be placed in blocks
+			'-W020': true, //Read only - error when assigning EO_SCRIPT_DEBUG a value.
+			jshintrc: '.jshintrc'
 		},
-		all: [ 'assets/js/*.js', '!assets/js/*.min.js' ]
-  	},
+		all: [
+		'<%= dirs.js %>/admin/*.js',
+		'!<%= dirs.js %>/admin/*.min.js',
+		'<%= dirs.js %>/frontend/*.js',
+		'!<%= dirs.js %>/frontend/*.min.js'
+		]
+	},
 
+	// Watch changes for assets.
 	watch: {
-		scripts: {
-			files: 'assets/js/*.js',
-			tasks: ['jshint', 'uglify'],
-			options: {
-				debounceDelay: 250,
-			},
-		},
-		css: {
-			files: 'assets/css/*.scss',
-			tasks: ['sass'],
-		},
+		js: {
+			files: [
+			'<%= dirs.js %>/admin/*js',
+			'<%= dirs.js %>/frontend/*js',
+			'!<%= dirs.js %>/admin/*.min.js',
+			'!<%= dirs.js %>/frontend/*.min.js'
+			],
+			tasks: ['jshint', 'uglify']
+		}
 	},
 
 	// # docs
@@ -107,13 +121,12 @@ module.exports = function(grunt) {
 		}
 	},
 
-	// bump version numbers
+	// bump version numbers (replace with version in package.json)
 	replace: {
-		Version: {
+		release: {
 			src: [
-				'readme.txt',
-				'readme.md',
-				'<%= pkg.name %>.php'
+			'readme.txt',
+			'<%= pkg.name %>.php'
 			],
 			overwrite: true,
 			replacements: [
@@ -122,21 +135,54 @@ module.exports = function(grunt) {
 					to: "Stable tag: <%= pkg.version %>"
 				},
 				{
-					from: /\*\*Stable tag:.*$/m,
-					to: "**Stable tag:** <%= pkg.version %>"
-				},
-				{ 
 					from: /Version:.*$/m,
 					to: "Version: <%= pkg.version %>"
 				},
-				{ 
+				{
+					from: /public \$version = \'.*.'/m,
+					to: "public $version = '<%= pkg.version %>'"
+				},
+				{
+					from: /public \$version = \'.*.'/m,
+					to: "public $version = '<%= pkg.version %>'"
+				},
+				{
+					from: /public static \$version = \'.*.'/m,
+					to: "public static $ver1.0.0-rc.8sion = '<%= pkg.version %>'"
+				},
+				{
 					from: /const VERSION = \'.*.'/m,
 					to: "const VERSION = '<%= pkg.version %>'"
+				}
+			]
+		},
+		prerelease: {
+			src: [
+			'readme.txt',
+			'<%= pkg.name %>.php',
+			],
+			overwrite: true,
+			replacements: [
+				{
+					from: /Stable tag:.*$/m,
+					to: "Stable tag: <%= pkg.version %>"
 				},
-
+				{
+					from: /Version:.*$/m,
+					to: "Version: <%= pkg.version %>"
+				},
+				{
+					from: /public \$version = \'.*.'/m,
+					to: "public $version = '<%= pkg.version %>'"
+				},
+				{
+					from: /public \$version      = \'.*.'/m,
+					to: "public $version      = '<%= pkg.version %>'"
+				}
 			]
 		}
 	},
+		
 	clean: {
 	  main: {
 	    src: ["build"]
@@ -205,20 +251,9 @@ module.exports = function(grunt) {
     );
 
 	grunt.registerTask(
-        'css',
-        [
-		'sass',
-		'rtlcss',
-		'postcss',
-		'cssmin'
-        ]
-    );
-
-	grunt.registerTask(
         'assets',
         [
 		'js',
-		'css'
         ]
     );
 
@@ -231,9 +266,9 @@ module.exports = function(grunt) {
         ]
     );
 
-	grunt.registerTask( 'docs', [ 'wp_readme_to_markdown'] );
-	grunt.registerTask( 'dev', [ 'jshint', 'uglify', 'sass' ] );
-	grunt.registerTask( 'build', [ 'replace', 'assets', 'addtextdomain', 'makepot' ] );
-	grunt.registerTask( 'release', [ 'build', 'zip', 'clean' ] );
+	grunt.registerTask( 'dev', [ 'replace:prerelease', 'assets' ] );
+	grunt.registerTask( 'build', [ 'dev', 'addtextdomain', 'makepot' ] );
+	grunt.registerTask( 'prerelease', [ 'build', 'zip', 'clean' ] );
+	grunt.registerTask( 'release', [ 'replace:release', 'assets', 'addtextdomain', 'makepot', 'build', 'zip', 'clean' ] );
 
 };
