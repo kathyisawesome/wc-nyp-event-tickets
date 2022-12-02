@@ -67,6 +67,15 @@ class WC_NYP_Tickets {
 	public $plugin_url = '';
 
 	/**
+	 * Where in the themes we will look for templates.
+	 *
+	 * @since 2.0.1
+	 *
+	 * @var string
+	 */
+	public $template_namespace = 'wc-nyp-event-tickets';
+
+	/**
 	 * Plugin Display Class
 	 *
 	 * @since 1.0.0

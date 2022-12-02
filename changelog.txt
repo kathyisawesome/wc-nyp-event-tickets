@@ -1,5 +1,8 @@
 === WooCommerce Name Your Price Event Tickets ===
 
+2022.12.02 - version 2.0.1
+* Ensure template override works for nyp-price.php template. Use [your-theme]/tribe/wc-nyp-event-tickets/v2/tickets/item/extra/nyp-price.php
+
 2021.10.07 - version 2.0.0
 * Event Tickets v2 template support added.
 * Event Tickets v1 template support dropped.

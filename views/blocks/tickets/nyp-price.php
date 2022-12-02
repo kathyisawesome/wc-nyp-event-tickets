@@ -4,7 +4,7 @@
  * Extra column, price
  *
  * Override this template in your own theme by creating a file at:
- * [your-theme]/tribe/tickets/blocks/tickets/nyp-price.php
+ * [your-theme]/tribe/wc-nyp-event-tickets/blocks/tickets/nyp-price.php
  *
  * See more documentation about our Blocks Editor templating system.
  *

@@ -26,6 +26,9 @@ class WC_NYP_Tickets_Display {
 		include_once 'class-tribe-tickets-nyp-template.php';
 		tribe_singleton( 'tickets-plus.nyp.template', 'Tribe__Tickets__NYP__Template' );
 
+		add_filter( 'tribe_template_path_list', [ $this, 'filter_template_path_list' ], 15, 2 );
+		add_filter( 'tribe_template_origin_namespace_map', [ $this, 'filter_add_template_origin_namespace' ], 15, 3 );
+
 		add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
 		add_filter( 'tribe_get_cost', array( $this, 'nyp_event_cost' ), 10, 3 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_nyp_scripts' ) );
@@ -38,6 +41,65 @@ class WC_NYP_Tickets_Display {
 		add_filter( 'wc_nyp_disable_edit_it_cart', array( $this, 'disable_edit_link_in_cart' ), 10, 2 );
 
 	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/* Template paths */
+	/*-----------------------------------------------------------------------------------*/
+
+
+	/**
+	 * Filters the list of folders that will be looked over to find templates and add the WC NYP Event Tickets.
+	 *
+	 * @since 2.0.1
+	 *
+	 * @param array           $folders  The current list of folders that will be searched template files.
+	 * @param Tribe__Template $template Which template instance we are dealing with.
+	 *
+	 * @return array The filtered list of folders that will be searched for the templates.
+	 */
+	public function filter_template_path_list( array $folders, Tribe__Template $template ) {
+		/** @var WC_NYP_Tickets $main */
+		$main = WC_NYP_Tickets::instance();
+
+		$path = (array) rtrim( $main->plugin_path, '/' );
+
+		// Pick up if the folder needs to be added to the public template path.
+		$folder = $template->get_template_folder();
+
+		if ( ! empty( $folder ) ) {
+			$path = array_merge( $path, $folder );
+		}
+
+		$folders[$main->template_namespace] = [
+			'id'        => $main->template_namespace,
+			'namespace' => $main->template_namespace,
+			'priority'  => 16,
+			'path'      => implode( DIRECTORY_SEPARATOR, $path ),
+		];
+
+		return $folders;
+	}
+
+	/**
+	 * Includes WC NYP Event Tickets into the path namespace mapping, allowing for a better namespacing when loading files.
+	 *
+	 * @since 2.0.1
+	 *
+	 * @param array           $namespace_map Indexed array containing the namespace as the key and path to `strpos`.
+	 * @param string          $path          Path we will do the `strpos` to validate a given namespace.
+	 * @param Tribe__Template $template      Current instance of the template class.
+	 *
+	 * @return array  Namespace map after adding Pro to the list.
+	 */
+	public function filter_add_template_origin_namespace( $namespace_map, $path, $template ) {
+		/** @var WC_NYP_Tickets $main */
+		$main = WC_NYP_Tickets::instance();
+
+		$namespace_map[ $main->template_namespace ] = $main->plugin_path;
+
+		return $namespace_map;
+	}
+	
 
 	/*-----------------------------------------------------------------------------------*/
 	/* Single Event Display Functions */
