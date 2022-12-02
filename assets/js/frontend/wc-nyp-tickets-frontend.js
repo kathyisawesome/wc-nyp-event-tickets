@@ -131,8 +131,6 @@ jQuery( function( $ ) {
          const nypForm = $form.wc_nyp_get_script_object();
     
         if ( nypForm && ! nypForm.isValid( 'submit' ) ) { 
-
-            console.log("not valid");
             return false;
         } else {
             return true;
@@ -141,4 +139,3 @@ jQuery( function( $ ) {
     } );
 
 } );
-

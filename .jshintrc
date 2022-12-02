@@ -21,6 +21,8 @@
 		"Backbone": false,
 		"jQuery": false,
 		"JSON": false,
-		"wp": false
+		"wp": false,
+		"tribe": false,
+		"woocommerce_nyp_format_price": false
 	}
 }
