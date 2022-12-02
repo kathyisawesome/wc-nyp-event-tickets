@@ -3,7 +3,7 @@
 /**
  * Allow including of Gutenberg Template
  *
- * @since 2.0.0
+ * @since 2.0.1
  */
 class Tribe__Tickets__NYP__Template extends Tribe__Tickets_Plus__Template {
 
@@ -15,7 +15,7 @@ class Tribe__Tickets__NYP__Template extends Tribe__Tickets_Plus__Template {
 	public function __construct() {
 
 		$this->set_template_origin( WC_NYP_Tickets::instance() );
-		$this->set_template_folder( 'templates' );
+		$this->set_template_folder( 'views' );
 
 		// Configures this templating class to extract variables.
 		$this->set_template_context_extract( true );
