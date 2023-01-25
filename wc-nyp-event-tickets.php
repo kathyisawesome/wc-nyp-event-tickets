@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Name Your Price - Event Tickets
- * Plugin URI:  http://github.com/helgatheviking/woocommerce-name-your-price-tickets
+ * Plugin URI:  https://github.com/kathyisawesome/wc-nyp-event-tickets
  * Description: Bridge plugin for adding NYP support to Modern Tribe&#39;s Tickets Plus
  * Version: 2.0.1
  * Author:      Kathy Darling
