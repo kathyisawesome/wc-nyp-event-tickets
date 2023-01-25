@@ -1,5 +1,8 @@
 # WooCommerce Name Your Price Event Tickets #
 
+### Donate to the pizza fund
+https://www.paypal.com/paypalme/kathyisawesome
+
 ### Quickstart
 
 This is a developmental repo. Clone this repo and run `npm install && npm run build`   
