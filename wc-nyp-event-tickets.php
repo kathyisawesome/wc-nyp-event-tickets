@@ -15,8 +15,9 @@
  * WC requires at least: 5.7.0
  * WC tested up to: 5.8.0   
  *
- * GitHub Plugin URI: https://github.com/kathyisawesome/wc-mnm-mobile-styles
+ * GitHub Plugin URI: https://github.com/kathyisawesome/wc-nyp-event-tickets
  * Release Asset: true
+ * Primary Branch: trunk
  *
  * Copyright: © 2016 Kathy Darling.
  * License: GNU General Public License v3.0
