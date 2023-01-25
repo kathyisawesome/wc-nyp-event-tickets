@@ -19,7 +19,7 @@
  * Release Asset: true
  * Primary Branch: trunk
  *
- * Copyright: © 2016 Kathy Darling.
+ * Copyright: © 2016 - 2023 Kathy Darling.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
