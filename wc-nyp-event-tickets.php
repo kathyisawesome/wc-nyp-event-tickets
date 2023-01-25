@@ -160,7 +160,7 @@ class WC_NYP_Tickets {
 
 		// Event Tickets version sanity check.
 		if ( ! class_exists( 'Tribe__Tickets_Plus__Main' ) || version_compare( Tribe__Tickets_Plus__Main::VERSION, self::REQUIRED_TICKETS, '<' ) ) {
-			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Ticket Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate WooCommerce.', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> The %sEvents Ticket Plus plugin%s must be active and at least version %s for Name Your Price Tickets to function. Please upgrade or activate Events Tickets Plus.', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
 
 			$notices[] = $notice;
 			$has_min_environment = false;
