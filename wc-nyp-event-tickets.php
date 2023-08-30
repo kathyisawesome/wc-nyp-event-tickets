@@ -124,7 +124,7 @@ class WC_NYP_Tickets {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
 
 		// Sanity checks.
-		if( ! $this->has_min_environment() ) {
+		if ( ! $this->has_min_environment() ) {
 			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 			return false;
 		}
@@ -169,7 +169,7 @@ class WC_NYP_Tickets {
 			$has_min_environment = false;
 		}
 
-		if( ! empty( $notices ) ) {
+		if ( ! empty( $notices ) ) {
 			update_option( 'wc_nyp_tickets_notices', $notices );
 		}
 		return $has_min_environment;
@@ -186,7 +186,7 @@ class WC_NYP_Tickets {
 
 		$notices = get_option( 'wc_nyp_tickets_notices', array() );
 
-		if( ! empty( $notices ) ) {
+		if ( ! empty( $notices ) ) {
 			foreach( $notices as $notice ) {
 				 echo '<div class="error"><p>' . $notice . '</p></div>';
 			}
@@ -223,7 +223,7 @@ class WC_NYP_Tickets {
 	 */
 	public function required_files() {
 		// include admin class to handle all backend functions
-		if( is_admin() ){
+		if ( is_admin() ) {
 			include_once 'includes/class-wc-nyp-event-tickets-admin.php';
 		}
 		
@@ -324,7 +324,7 @@ class WC_NYP_Tickets {
 			// Get all tickets for event.
 			$tickets = $woo->get_tickets_ids( $event_id );
 			
-			if( $tickets ) {
+			if ( $tickets ) {
 			
 				foreach ( $tickets as $ticket_id ) {
 					if ( WC_Name_Your_Price_Helpers::is_nyp( $ticket_id ) ) {
