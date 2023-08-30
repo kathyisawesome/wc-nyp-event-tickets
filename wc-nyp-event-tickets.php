@@ -13,7 +13,7 @@
  * Requires at least: 5.0.0
  * Tested up to: 5.8.0
  * WC requires at least: 5.7.0
- * WC tested up to: 7.4.0   
+ * WC tested up to: 8.0.0  
  *
  * GitHub Plugin URI: https://github.com/kathyisawesome/wc-nyp-event-tickets
  * Release Asset: true
