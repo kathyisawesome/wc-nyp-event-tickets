@@ -341,4 +341,4 @@ function WC_NYP_Tickets() {
 }
 
 // Launch the whole plugin
-add_action( 'plugins_loaded', 'WC_NYP_Tickets', 20 );
+add_action( 'plugins_loaded', 'WC_NYP_Tickets', 99 );
