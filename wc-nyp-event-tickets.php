@@ -117,6 +117,9 @@ class WC_NYP_Tickets {
 		$this->plugin_dir  = trailingslashit( basename( $this->plugin_path ) );
 		$this->plugin_url  = plugins_url() . '/' . $this->plugin_dir;
 
+		// Declare HPOS compatibility.
+		add_action( 'before_woocommerce_init', [ __CLASS__, 'declare_hpos_compatibility' ] );
+
 		// Load translation files.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
 
@@ -190,6 +193,22 @@ class WC_NYP_Tickets {
 			delete_option( 'wc_nyp_tickets_notices' );
 		}
 	   
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/* Core Compat */
+	/*-----------------------------------------------------------------------------------*/
+
+	/**
+	 * Declare HPOS (Custom Order tables) compatibility.
+	 */
+	public static function declare_hpos_compatibility() {
+
+		if ( ! class_exists( 'Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			return;
+		}
+
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', plugin_basename( __FILE__ ), true );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
