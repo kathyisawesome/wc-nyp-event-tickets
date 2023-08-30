@@ -6,7 +6,7 @@
  * @package		WooCommerce Name Your Price Event Tickets
  * @author		Kathy Darling
  * @since		1.0.0
- * @version     2.0.1
+ * @version     2.0.3
  */
 
 // Exit if accessed directly
@@ -23,9 +23,13 @@ class WC_NYP_Tickets_Display {
 	 */
 	public function __construct() {
 
-		include_once 'class-tribe-tickets-nyp-template.php';
-		tribe_singleton( 'tickets-plus.nyp.template', 'Tribe__Tickets__NYP__Template' );
-
+		if ( class_exists( 'Tribe__Tickets_Plus__Template' ) ) {
+			include_once 'class-tribe-tickets-nyp-template.php';
+			tribe_singleton( 'tickets-plus.nyp.template', 'Tribe__Tickets__NYP__Template' );
+			add_filter( 'tribe_template_html:tickets/blocks/tickets/extra-price', array( $this, 'ticket_nyp_html' ), 10, 4 );
+			add_filter( 'tribe_template_html:tickets/v2/tickets/item/extra/price', array( $this, 'v2_ticket_nyp_html' ), 10, 4 );
+		}
+		
 		add_filter( 'tribe_template_path_list', [ $this, 'filter_template_path_list' ], 15, 2 );
 		add_filter( 'tribe_template_origin_namespace_map', [ $this, 'filter_add_template_origin_namespace' ], 15, 3 );
 
@@ -34,8 +38,6 @@ class WC_NYP_Tickets_Display {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_nyp_scripts' ) );
 		add_filter( 'wc_nyp_data_attributes', array( $this, 'optional_nyp_attributes' ), 10, 2 );
 		
-		add_filter( 'tribe_template_html:tickets/blocks/tickets/extra-price', array( $this, 'ticket_nyp_html' ), 10, 4 );
-		add_filter( 'tribe_template_html:tickets/v2/tickets/item/extra/price', array( $this, 'v2_ticket_nyp_html' ), 10, 4 );
 		add_action( 'wp_head', array( $this, 'ticket_nyp_css' ) );
 
 		add_filter( 'wc_nyp_disable_edit_it_cart', array( $this, 'disable_edit_link_in_cart' ), 10, 2 );
