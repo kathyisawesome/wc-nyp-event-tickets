@@ -25,6 +25,21 @@
  */
 
 /**
+ * Declare Features compatibility.
+ */
+add_action( 'before_woocommerce_init', function() {
+	if ( ! class_exists( 'Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+		return;
+	}
+
+	// HPOS (Custom Order tables.
+	\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', plugin_basename( __FILE__ ), true );
+
+	// Cart and Checkout Blocks.
+	\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', plugin_basename( __FILE__ ), true );
+} );
+
+/**
  * The Main WC_NYP_Tickets class
  **/
 if ( ! class_exists( 'WC_NYP_Tickets' ) ) :
@@ -117,9 +132,6 @@ class WC_NYP_Tickets {
 		$this->plugin_dir  = trailingslashit( basename( $this->plugin_path ) );
 		$this->plugin_url  = plugins_url() . '/' . $this->plugin_dir;
 
-		// Declare HPOS compatibility.
-		add_action( 'before_woocommerce_init', [ __CLASS__, 'declare_hpos_compatibility' ] );
-
 		// Load translation files.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
 
@@ -196,22 +208,6 @@ class WC_NYP_Tickets {
 	}
 
 	/*-----------------------------------------------------------------------------------*/
-	/* Core Compat */
-	/*-----------------------------------------------------------------------------------*/
-
-	/**
-	 * Declare HPOS (Custom Order tables) compatibility.
-	 */
-	public static function declare_hpos_compatibility() {
-
-		if ( ! class_exists( 'Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
-			return;
-		}
-
-		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', plugin_basename( __FILE__ ), true );
-	}
-
-	/*-----------------------------------------------------------------------------------*/
 	/* Required Files */
 	/*-----------------------------------------------------------------------------------*/
 
@@ -231,8 +227,7 @@ class WC_NYP_Tickets {
 		$this->cart    = include_once 'includes/class-wc-nyp-event-tickets-cart.php';
 		
 	}
-
-
+	
 
 	/*-----------------------------------------------------------------------------------*/
 	/* Localization */
