@@ -10,10 +10,10 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
- * Requires at least: 5.0.0
- * Tested up to: 5.8.0
- * WC requires at least: 5.7.0
- * WC tested up to: 8.0.0  
+ * Requires at least: 6.0.0
+ * Tested up to: 6.7.0
+ * WC requires at least: 9.3.0
+ * WC tested up to: 9.5.0  
  *
  * GitHub Plugin URI: https://github.com/kathyisawesome/wc-nyp-event-tickets
  * Release Asset: true
@@ -48,7 +48,7 @@ class WC_NYP_Tickets {
 
 	const VERSION = '2.0.3';
 	const PREFIX  = 'WC_NYP_Tickets';
-	const REQUIRED_WC = '5.0.0';
+	const REQUIRED_WC = '9.3.0';
 	const REQUIRED_NYP = '3.0.0';
 	const REQUIRED_TICKETS = '5.2.10';
 
@@ -227,7 +227,7 @@ class WC_NYP_Tickets {
 		$this->cart    = include_once 'includes/class-wc-nyp-event-tickets-cart.php';
 		
 	}
-	
+
 
 	/*-----------------------------------------------------------------------------------*/
 	/* Localization */
