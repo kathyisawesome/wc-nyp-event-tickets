@@ -6,7 +6,7 @@
  * @package		WooCommerce Name Your Price Event Tickets
  * @author		Kathy Darling
  * @since		1.0.0
- * @version     2.0.3
+ * @version     2.1.0
  */
 
 // Exit if accessed directly
@@ -121,6 +121,11 @@ class WC_NYP_Tickets_Display {
 
 		if ( WC_NYP_Tickets()->event_has_nyp( $post_id ) ) {
 			$classes[] = 'has-nyp-tickets';
+		}
+
+		// Add the `nyp-product` class back to the `post_class` filter. NYP 3.6.0 removed that in favor of filtering `woocommerce_post_class`
+		if ( $post_id && 'product' === get_post_type( $post_id ) && WC_Name_Your_Price_Helpers::is_nyp( $post_id ) || WC_Name_Your_Price_Helpers::has_nyp( $post_id ) ) {
+			$classes[] = 'nyp-product';
 		}
 				
 		return $classes;
