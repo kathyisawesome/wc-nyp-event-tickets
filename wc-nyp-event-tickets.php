@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
- * Requires at least: 6.0.0
+ * Requires at least: 6.6.0
  * Tested up to: 6.7.0
  * WC requires at least: 9.3.0
  * WC tested up to: 9.5.0  
