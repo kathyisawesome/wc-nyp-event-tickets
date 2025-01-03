@@ -8,3 +8,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html    
 
 Add Name Your Price support to Events Tickets
+
+== Changelog ==
+
+= 2.1.0 =
+* Fix: Fatal error introduced by Name Your Price 2.6.0
