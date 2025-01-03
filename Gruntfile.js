@@ -199,6 +199,7 @@ module.exports = function(grunt) {
 				'!.git/**',
 				'!vendor/**',
 				'!deploy/**',
+				'!bin/**'	,
 				'!*~',
 				'!.gitignore',
 				'!*.sublime-workspace',

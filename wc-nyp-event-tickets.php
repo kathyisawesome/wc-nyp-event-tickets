@@ -16,7 +16,7 @@
  * WC requires at least: 9.4.0
  * WC tested up to: 9.6.0  
  *
- * GitHub Plugin URI: https://github.com/kathyisawesome/wc-nyp-event-tickets
+ * GitHub Plugin URI: kathyisawesome/wc-nyp-event-tickets
  * Release Asset: true
  * Primary Branch: trunk
  *
@@ -24,6 +24,17 @@
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
+
+use \Backcourt\NYPEventTickets\Vendor\Fragen;
+
+ /**
+  * Add Git Updater Lite
+  */
+require_once __DIR__ . '/packages/autoload.php';
+add_filter( 'gul_update_server', function () {
+	return 'https://www.backcourt.io';
+});
+( new Fragen\Git_Updater\Lite( __FILE__ ) )->run();
 
 /**
  * Declare Features compatibility.

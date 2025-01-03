@@ -11,5 +11,8 @@ Add Name Your Price support to Events Tickets
 
 == Changelog ==
 
+= 2.2.0 =
+* New: Automatic updates
+
 = 2.1.0 =
 * Fix: Fatal error introduced by Name Your Price 2.6.0

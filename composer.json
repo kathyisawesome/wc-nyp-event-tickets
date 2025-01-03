@@ -9,5 +9,30 @@
             "email": "507025+helgatheviking@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "afragen/git-updater-lite": "^1"
+    },
+    "require-dev": {
+        "brianhenryie/strauss": "^0.20.1"
+    },
+    "scripts": {
+        "prefix-namespaces": [
+            "strauss",
+            "@php composer dump-autoload"
+        ],
+        "post-install-cmd": [
+            "@prefix-namespaces"
+        ],
+        "post-update-cmd": [
+            "@prefix-namespaces"
+        ]
+    },
+    "extra": {
+        "strauss": {
+            "target_directory": "packages",
+            "namespace_prefix": "Backcourt\\NYPEventTickets\\Vendor",
+            "classmap_prefix": "Backcourt_NYP_Event_Tickets_Vendor_",
+            "constant_prefix": "BCNYPET_"
+        }
+    }
 }

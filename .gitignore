@@ -42,3 +42,10 @@ none
 
 # Editor
 .vscode/
+
+# Composer
+/vendor/*
+/packages/*
+
+# BrianHenryIE/Strauss - PHP Namespace Renamer
+bin/strauss.phar
