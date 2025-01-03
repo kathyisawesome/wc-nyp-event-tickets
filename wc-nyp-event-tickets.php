@@ -16,10 +16,8 @@
  * WC requires at least: 9.4.0
  * WC tested up to: 9.6.0  
  *
- * GitHub Plugin URI: kathyisawesome/wc-nyp-event-tickets
- * Release Asset: true
- * Primary Branch: trunk
- *
+ * Update URI: kathyisawesome/wc-nyp-event-tickets
+ * 
  * Copyright: © 2016 - 2025 Kathy Darling.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
