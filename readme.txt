@@ -17,3 +17,18 @@ Add Name Your Price support to Events Tickets
 
 = 2.1.0 =
 * Fix: Fatal error introduced by Name Your Price 2.6.0
+
+= 2.0.1 =
+* Ensure template override works for nyp-price.php template. Use [your-theme]/tribe/wc-nyp-event-tickets/v2/tickets/item/extra/nyp-price.php
+
+= 2.0.0 =
+* Event Tickets v2 template support added.
+* Event Tickets v1 template support dropped.
+
+= 1.1.0 =
+* WooCommerce 3.0 compatibility. **Warning** not compatible with WC 2.6.x.
+* Add Name Your Price's front-end validation (requires Event Tickets Plus 4.5.5)
+* Add translation-ready .POT file
+
+= 1.0 =
+ * First Release
