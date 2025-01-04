@@ -1,12 +1,16 @@
 === WooCommerce Name Your Price Event Tickets ===
 
-Contributors: helgatheviking    
-Requires at least: 6.6.0    
-Tested up to: 6.7.0    
+Contributors: helgatheviking
 Stable tag: 2.2.0
 Requires PHP: 8.0
+Requires at least: 6.5
+Tested up to: 6.7
+WC requires at least: 9.4.0
+WC tested up to: 9.6.0
 License: GPLv3    
 License URI: http://www.gnu.org/licenses/gpl-3.0.html    
+
+== Description ==
 
 Add Name Your Price support to Events Tickets
 
