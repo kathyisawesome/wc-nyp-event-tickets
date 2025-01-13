@@ -1,5 +1,5 @@
 {
-    "name": "kathyisawesome/wc-nyp-event-tickets",
+    "name": "backcourt/wc-nyp-event-tickets",
     "description": "Bridge plugin for adding NYP support to Event Tickets Plus",
     "type": "wordpress-plugin",
     "license": "GPL-3.0-or-later",

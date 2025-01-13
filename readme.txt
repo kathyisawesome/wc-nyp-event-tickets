@@ -16,6 +16,9 @@ Add Name Your Price support to Events Tickets
 
 == Changelog ==
 
+= 2.2.1 =
+* Fix: Change update server
+
 = 2.2.0 =
 * New: Automatic updates
 

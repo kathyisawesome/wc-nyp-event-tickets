@@ -7,7 +7,7 @@ https://www.paypal.com/paypalme/kathyisawesome
 
 This is a developmental repo. Clone this repo and run `composer install && npm install && npm run build`   
 OR    
-|[Download latest release](https://github.com/kathyisawesome/wc-nyp-event-tickets/releases/latest/)|
+|[Download latest release](https://github.com/backcourt/wc-nyp-event-tickets/releases/latest/)|
 |---|
 
 ## What's This?
@@ -34,4 +34,4 @@ Bridge plugin that adds Name Your Price support to Event Tickets Plus.
 ## Important ##
 
 1. This plugin is available _as is_ and does not receive priority support.
-2. Version 2.0 will _only_ support the Events v2 templates. If you are using the older templates, you can try to use the [last v1 of the bridge plugin](https://github.com/kathyisawesome/wc-nyp-event-tickets/tree/1.0.2). 
+2. Version 2.0 will _only_ support the Events v2 templates. If you are using the older templates, you can try to use the [last v1 of the bridge plugin](https://github.com/backcourt/wc-nyp-event-tickets/tree/1.0.2). 

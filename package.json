@@ -6,10 +6,10 @@
   "author": "Kathy Darling",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kathyisawesome/wc-nyp-event-tickets"
+    "url": "https://github.com/backcourt/wc-nyp-event-tickets"
   },
   "bugs": {
-    "url": "https://github.com/kathyisawesome/wc-nyp-event-tickets/issues"
+    "url": "https://github.com/backcourt/wc-nyp-event-tickets/issues"
   },
   "devDependencies": {
     "grunt": "~1.6.1",
