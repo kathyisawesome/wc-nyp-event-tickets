@@ -9,7 +9,7 @@
  * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
  * 
- * Update URI: backcourt/wc-nyp-event-tickets
+ * Update URI: https://www.backcourt.io/
  *
  * Requires PHP: 8.0
  *
@@ -29,11 +29,10 @@ use \Backcourt\NYPEventTickets\Vendor\Fragen;
  /**
   * Add Git Updater Lite
   */
-require_once __DIR__ . '/packages/autoload.php';
-add_filter( 'gul_update_server', function () {
-	return 'https://www.backcourt.io';
-});
-( new Fragen\Git_Updater\Lite( __FILE__ ) )->run();
+if ( file_exists( __DIR__ . '/packages/autoload.php' ) ) {
+	require_once __DIR__ . '/packages/autoload.php';
+	( new Fragen\Git_Updater\Lite( __FILE__ ) )->run();
+}
 
 /**
  * Declare Features compatibility.
