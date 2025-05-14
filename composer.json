@@ -10,10 +10,10 @@
         }
     ],
     "require": {
-        "afragen/git-updater-lite": "^1"
+        "afragen/git-updater-lite": "^2"
     },
     "require-dev": {
-        "brianhenryie/strauss": "^0.20.1"
+        "brianhenryie/strauss": "^0.22.2"
     },
     "scripts": {
         "prefix-namespaces": [
