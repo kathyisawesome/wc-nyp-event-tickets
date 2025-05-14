@@ -1,7 +1,7 @@
 === WooCommerce Name Your Price Event Tickets ===
 
 Contributors: helgatheviking
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 Requires PHP: 8.0
 Requires at least: 6.5
 Tested up to: 6.7
