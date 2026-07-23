@@ -12,7 +12,7 @@
     "url": "https://github.com/backcourt/wc-nyp-event-tickets/issues"
   },
   "devDependencies": {
-    "grunt": "~1.6.1",
+    "grunt": "~1.6.2",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-compress": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -22,7 +22,7 @@
     "grunt-contrib-watch": "~1.1.0",
     "grunt-newer": "~1.3.0",
     "grunt-text-replace": "~0.4.0",
-    "grunt-wp-i18n": "~1.0.3",
+    "grunt-wp-i18n": "~1.0.4",
     "grunt-wp-readme-to-markdown": "~2.1.0",
     "jshint-stylish": "~2.2.1",
     "load-grunt-tasks": "~5.1.0"
