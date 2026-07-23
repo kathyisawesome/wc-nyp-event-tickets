@@ -4,8 +4,8 @@
  * Plugin URI:  https://github.com/backcourt/wc-nyp-event-tickets
  * Description: Bridge plugin for adding NYP support to Modern Tribe&#39;s Tickets Plus
  * Version: 2.2.2
- * Author:      Kathy Darling
- * Author URI:  http://www.kathyisawesome.com
+ * Author:      Backcourt Development
+ * Author URI:  http://www.backcourt.io
  * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
  * 
@@ -19,7 +19,7 @@
  * WC requires at least: 9.4.0
  * WC tested up to: 9.6.0
  * 
- * Copyright: © 2025 Kathy Darling
+ * Copyright: © 2026 Backcourt Development
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */

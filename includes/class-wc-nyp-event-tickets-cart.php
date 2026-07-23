@@ -4,7 +4,6 @@
  *
  * @class 	WC_NYP_Tickets_Cart
  * @package		WooCommerce Name Your Price Event Tickets
- * @author		Kathy Darling
  * @since		1.0.0
  */
 
