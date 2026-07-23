@@ -3,13 +3,13 @@
  * Plugin Name: WooCommerce Name Your Price - Event Tickets
  * Plugin URI:  https://github.com/backcourt/wc-nyp-event-tickets
  * Description: Bridge plugin for adding NYP support to Modern Tribe&#39;s Tickets Plus
- * Version: 2.2.2
+ * Version: 2.3.0
  * Author:      Backcourt Development
  * Author URI:  http://www.backcourt.io
  * Text Domain: wc-nyp-event-tickets
  * Domain Path: /languages
  * 
- * Update URI: https://www.backcourt.io/
+ * Update URI: https://www.backcourt.io
  *
  * Requires PHP: 8.0
  *
@@ -56,7 +56,7 @@ if ( ! class_exists( 'WC_NYP_Tickets' ) ) :
 
 class WC_NYP_Tickets {
 
-	const VERSION = '2.2.2';
+	const VERSION = '2.3.0';
 	const PREFIX  = 'WC_NYP_Tickets';
 	const REQUIRED_WC = '10.0.0';
 	const REQUIRED_NYP = '3.0.0';
