@@ -156,8 +156,8 @@ class WC_NYP_Tickets_Admin {
 
 	/**
 	 * Enqueue the tickets metabox JS and CSS
+	 * 
 	 * @param string $hook
-	 * @return void
 	 * @since 1.0.0
 	 */
 	public static function meta_box_script( $hook ) {

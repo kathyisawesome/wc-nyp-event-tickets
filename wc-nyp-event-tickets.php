@@ -224,7 +224,6 @@ class WC_NYP_Tickets {
 	/**
 	 * Load Classes
 	 *
-	 * @return      void
 	 * @since       0.1.0
 	 */
 	public function required_files() {
@@ -253,7 +252,6 @@ class WC_NYP_Tickets {
 	 *      - WP_LANG_DIR/plugins/wc-nyp-tickets-LOCALE.mo
 	 *      - WP_CONTENT_DIR/plugins/woocommerce-name-your-price-event-tickets/languages/wc-nyp-tickets-LOCALE.mo
 	 *
-	 * @return void
 	 * @since  1.0.0
 	 */
 	public function load_plugin_textdomain() {

@@ -376,7 +376,6 @@ class WC_NYP_Tickets_Display {
 	 *
 	 * @param obj $ticket
 	 * @param obj $product
-	 * @return void
 	 */
 	public function nyp_ticket_price( $price_html, $product, $attendee ) {
 		if( tribe_is_event() && WC_Name_Your_Price_Helpers::is_nyp( $product ) ) {
