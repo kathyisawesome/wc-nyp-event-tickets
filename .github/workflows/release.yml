@@ -43,12 +43,12 @@ jobs:
     steps:
 
       - name: "Checks out the repository."
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v7"
 
       - name: "Sets up PHP with Composer."
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           tools: composer
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,7 +59,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: "Sets up Composer Caching."
-        uses: "actions/cache@v3"
+        uses: "actions/cache@v6"
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-php-composer-build-${{ hashFiles('**/composer.lock') }}
@@ -76,9 +76,9 @@ jobs:
           composer install --no-interaction --prefer-dist
 
       - name: "Setup NodeJS."
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '16'
+          node-version: '24'
 
       - name: "Get NPM cache directory."
         id: npm-cache-dir
@@ -86,7 +86,7 @@ jobs:
           echo "dir=$(npm config get cache)" >> $GITHUB_OUTPUT
 
       - name: "Sets up NPM Caching."
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-npm-build-${{ hashFiles('**/package-lock.json') }}
@@ -135,9 +135,6 @@ jobs:
         if: ${{ env.release_status != 'pre-release' }}
         run: |
           npm run release
-
-      - name: Rename output file
-        run: mv ./deploy/${{ env.release_tag }}/${{ env.release_name }}.zip ./deploy/${{ env.release_tag }}/${{ env.release_name }}-${{ env.release_tag }}.zip
 
       - name: "Add package to GitHub releases."
         uses: softprops/action-gh-release@v1
