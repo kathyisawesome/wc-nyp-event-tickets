@@ -145,15 +145,25 @@ class WC_NYP_Tickets {
 		// Load translation files.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 20 );
 
+		// Bootstrap plugin after translations are loaded.
+		add_action( 'init', array( $this, 'initialize_plugin' ), 30 );
+
+	}
+
+	/**
+	 * Initialize plugin after init to avoid triggering translations too early.
+	 *
+	 * @since 2.3.0
+	 */
+	public function initialize_plugin() {
 		// Sanity checks.
 		if ( ! $this->has_min_environment() ) {
 			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-			return false;
+			return;
 		}
 
 		// Load core files.
 		self::required_files();
-
 	}
 
 
