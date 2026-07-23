@@ -14,10 +14,10 @@
  * Requires PHP: 8.0
  *
  * Requires at least: 6.6.0
- * Tested up to: 6.7.0
+ * Tested up to: 7.0.0
  * 
- * WC requires at least: 9.4.0
- * WC tested up to: 9.6.0
+ * WC requires at least: 10.0.0
+ * WC tested up to: 10.9.0
  * 
  * Copyright: © 2026 Backcourt Development
  * License: GNU General Public License v3.0
