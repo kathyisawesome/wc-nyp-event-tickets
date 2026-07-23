@@ -191,6 +191,14 @@ class WC_NYP_Tickets {
 			$has_min_environment = false;
 		}
 
+		// Disable if Tickets Commerce is enabled, as it is not compatible with NYP.
+		if ( $has_min_environment && tec_tickets_commerce_is_enabled() ) {
+			$notice = sprintf( __( '<strong>Name Your Price Tickets is inactive.</strong> It cannot be used with the built in Tickets Commerce. Please disable that in order to use WooCommerce-based ticket sales.', 'wc-nyp-event-tickets' ), '<a href="https://theeventscalendar.com/product/wordpress-event-tickets-plus/">', '</a>', self::REQUIRED_TICKETS );
+
+			$notices[] = $notice;
+			$has_min_environment = false;
+		}
+
 		if ( ! empty( $notices ) ) {
 			update_option( 'wc_nyp_tickets_notices', $notices );
 		}
