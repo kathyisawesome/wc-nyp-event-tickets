@@ -5,7 +5,7 @@
  * @class 		WC_NYP_Tickets_Display
  * @package		WooCommerce Name Your Price Event Tickets
  * @since		1.0.0
- * @version     2.1.0
+ * @version     2.3.0
  */
 
 // Exit if accessed directly
@@ -39,7 +39,7 @@ class WC_NYP_Tickets_Display {
 		
 		add_action( 'wp_head', array( $this, 'ticket_nyp_css' ) );
 
-		add_filter( 'wc_nyp_disable_edit_it_cart', array( $this, 'disable_edit_link_in_cart' ), 10, 2 );
+		add_filter( 'wc_nyp_show_edit_link_in_cart', array( $this, 'disable_edit_link_in_cart' ), 10, 2 );
 
 	}
 
@@ -324,15 +324,15 @@ class WC_NYP_Tickets_Display {
 	 * 
 	 * @since 2.0.0
 	 * 
-	 * @param boolean $disable
+	 * @param boolean $show_edit_link
 	 * @param array $cart_item - The WooCommerce cart item array.
 	 * @return bool
 	 */
-	public function disable_edit_link_in_cart( $disable, $cart_item ) {
+	public function disable_edit_link_in_cart( $show_edit_link, $cart_item ) {
 		if ( tribe_events_product_is_ticket( $cart_item[ 'product_id' ] ) ) {
-			$disable = true;
+			$show_edit_link = false;
 		}
-		return $disable;
+		return $show_edit_link;
 	}
 
 	
