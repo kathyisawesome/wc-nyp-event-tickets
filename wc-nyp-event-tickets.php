@@ -58,9 +58,9 @@ class WC_NYP_Tickets {
 
 	const VERSION = '2.2.2';
 	const PREFIX  = 'WC_NYP_Tickets';
-	const REQUIRED_WC = '9.3.0';
+	const REQUIRED_WC = '10.0.0';
 	const REQUIRED_NYP = '3.0.0';
-	const REQUIRED_TICKETS = '5.2.10';
+	const REQUIRED_TICKETS = '6.9.0';
 
 	/**
 	 * @var WC_NYP_Tickets - the single instance of the class

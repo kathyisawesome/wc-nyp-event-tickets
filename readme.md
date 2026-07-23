@@ -17,9 +17,9 @@ Bridge plugin that adds Name Your Price support to Event Tickets Plus.
 ![Screen Recording of Front end event view. A table lists all the tickets for this event. The "pay what you want" ticket displays a price input](https://user-images.githubusercontent.com/507025/133818392-57d57ad5-a14a-4c92-b57b-f3f5780d05a2.gif "Front end price input for ticket")
 
 ## Minimum Requirements ##
-* WooCommerce 9.4+
+* WooCommerce 10+
 * WooCommerce Name Your Price 3.0+
-* Events Tickets Plus 5.2.10+
+* Events Tickets Plus 6.9.0+
 
 ### Set up
 
